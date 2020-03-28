@@ -6,17 +6,16 @@ Trip Together App
 Step 1:
 </h1>
 <p>Clone this repo:<p>
-<code>https://github.umn.edu/islam033/tripTogether.git</code>
+<p>git clone https://github.umn.edu/islam033/tripTogether.git</p>
 
 <h1>
 Step 2:
 </h1>
 <p>Download Node.js
 
-<a href="https://nodejs.org/en/">Download</a>
+<a href="https://nodejs.org/en/">Download it here</a>
 
 <p>
-
 <h1>Step 3:</h1>
 <p>
 npm install expo-cli --global
