@@ -5,7 +5,8 @@ Trip Together App
 <h1>
 Step 1:
 </h1>
-<p>Clone this repo<p>
+<p>Clone this repo:<p>
+<code>https://github.umn.edu/islam033/tripTogether.git</code>
 
 <h1>
 Step 2:
