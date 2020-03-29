@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>That's new update 2</Text>
+      <Text>That's new update 3 in new branch</Text>
     </View>
   );
 }
