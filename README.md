@@ -43,9 +43,9 @@ Scan the QR code on your phone
 <p>
 When working on a task do the following: 
 </p>
-<p> Step 1: </p>
+<p> Step 1 Create a new Branch: </p>
 <p> git checkout -b "---replace this with your branch name---"</p>
-<p> Step 2: </p>
+<p> Step 2 Add your changes: </p>
 <p> When you want to push your changes up do the following: </p>
 <p> git add . </p>
 <p> git commit -m "---your commit message---" </p>
