@@ -1,21 +1,20 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import AuthScreen from "./screens/AuthScreen";
 
-export default function App() {
+export default function Login() {
   return (
     <View style={styles.container}>
       {/* <Text>That's new update 2</Text> */}
-      <AuthScreen />
+      <Text>Login Component</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+    // flex: 1,
+    backgroundColor: "#fff"
+    // alignItems: "center",
+    // justifyContent: "center"
   }
 });

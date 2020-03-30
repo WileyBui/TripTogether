@@ -1,12 +1,14 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import AuthScreen from "./screens/AuthScreen";
+import Login from "../components/Login";
+import SignUp from "../components/SignUp";
 
-export default function App() {
+export default function AuthScreen() {
   return (
     <View style={styles.container}>
-      {/* <Text>That's new update 2</Text> */}
-      <AuthScreen />
+      <Text>Auth Screen:</Text>
+      <Login />
+      <SignUp />
     </View>
   );
 }
