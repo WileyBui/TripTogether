@@ -38,3 +38,23 @@ Download expo app on your Phone
 <p>
 Scan the QR code on your phone
 </p>
+
+<h2>Using Git</h2>
+<p>
+When working on a task do the following: 
+</p>
+<p> Step 1 Create a new Branch: </p>
+<p> git checkout -b "---replace this with your branch name---"</p>
+<p> Step 2 Add your changes: </p>
+<p> When you want to push your changes up do the following: </p>
+<p> git add . </p>
+<p> git commit -m "---your commit message---" </p>
+<p> git push </p>
+
+<div>
+<h1>
+Navigating through the app for dev:
+</h1>
+<p>In the Sign up screen hit the sign in option and go to the sign in page </p>
+<p>Hit continue to get to the Home Screen and then tap the Open Menu to open navigation for all of the screens</p>
+</div>
