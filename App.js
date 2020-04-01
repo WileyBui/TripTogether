@@ -21,6 +21,7 @@ import {
 } from "./components/ScreenHeader";
 
 import QuizOverviewScreen from "./screens/Quiz/QuizOverviewScreen";
+import NewTripScreen from "./screens/Trips/NewTripScreen";
 // import { NavigationContainer } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
@@ -33,25 +34,12 @@ function App(props) {
   console.log(props);
 
   return (
-    // <View>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Auth">
         <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{ headerShown: false }}
-
-          // options={{
-          //   headerLeftContainerStyle: props => (
-          //     <ScreenHeader title="My Trips" {...props} />
-          //   )
-          // }}
-          // options={{
-          //   headerLeft: navigation => (
-          //     <LeftHeaderComponent navigationProps={navigation} />
-          //   ),
-          //   headerRight: () => <RightHeaderComponent />
-          // }}
         />
         <Stack.Screen
           name="Auth"
@@ -63,9 +51,13 @@ function App(props) {
           component={QuizOverviewScreen}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="NewTrips"
+          component={NewTripScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
-    // </View>
   );
 }
 

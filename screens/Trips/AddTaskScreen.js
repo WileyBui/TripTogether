@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: "10%",
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#fafafa",
     alignItems: "center"
   }
 });

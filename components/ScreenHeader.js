@@ -43,7 +43,7 @@ export const HeaderComponent = props => {
         </TouchableHighlight>
       </View>
       <View style={styles.middleSection}>
-        <Text>{props.screenTitle}</Text>
+        <Text style={styles.headerTitle}>{props.screenTitle}</Text>
       </View>
       <View style={styles.rightSection}>
         <Text>Search</Text>
@@ -55,8 +55,10 @@ export const HeaderComponent = props => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: "#f0f0f0",
-    marginBottom: 30
+    backgroundColor: "#fafafa",
+    marginBottom: 30,
+    borderBottomWidth: 1,
+    borderBottomColor: "#f0f0f0"
     // justifyContent: "center"
   },
   middleSection: {
@@ -79,5 +81,9 @@ const styles = StyleSheet.create({
     // backgroundColor: "powderblue",
     alignItems: "center",
     justifyContent: "center"
+  },
+  headerTitle: {
+    fontWeight: "bold",
+    fontSize: 20
   }
 });
