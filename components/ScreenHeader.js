@@ -6,28 +6,29 @@ import {
   Button,
   TouchableHighlight
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-export const LeftHeaderComponent = props => {
-  console.log("Hamburger icon >>>>>>>");
+// export const LeftHeaderComponent = props => {
+//   console.log("Hamburger icon >>>>>>>");
 
-  console.log(props);
+//   console.log(props);
 
-  return (
-    <View>
-      <TouchableHighlight>
-        <Text>Hamburger icon</Text>
-      </TouchableHighlight>
-    </View>
-  );
-};
+//   return (
+//     <View>
+//       <TouchableHighlight>
+//         <Text>Hamburger icon</Text>
+//       </TouchableHighlight>
+//     </View>
+//   );
+// };
 
-export const RightHeaderComponent = props => {
-  return (
-    <View>
-      <Text>Right</Text>
-    </View>
-  );
-};
+// export const RightHeaderComponent = props => {
+//   return (
+//     <View>
+//       <Text>Right</Text>
+//     </View>
+//   );
+// };
 
 export const HeaderComponent = props => {
   console.log("Header Component ++++++>");
@@ -39,14 +40,20 @@ export const HeaderComponent = props => {
         <TouchableHighlight
           onPress={() => props.headerProps.navigation.toggleDrawer()}
         >
-          <Text>Open Menu</Text>
+          {/* <Text>Open Menu</Text> */}
+          <Ionicons name="ios-menu" size={32} color="#032224" />
         </TouchableHighlight>
       </View>
       <View style={styles.middleSection}>
         <Text style={styles.headerTitle}>{props.screenTitle}</Text>
       </View>
       <View style={styles.rightSection}>
-        <Text>Search</Text>
+        <TouchableHighlight
+        // onPress={() => props.headerProps.navigation.toggleDrawer()}
+        >
+          {/* <Text>Open Menu</Text> */}
+          <Ionicons name="ios-search" size={32} color="#032224" />
+        </TouchableHighlight>
       </View>
     </View>
   );
