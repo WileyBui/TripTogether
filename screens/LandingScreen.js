@@ -27,7 +27,6 @@ export default function LandingScreen(props) {
       ></TouchableHighlight>
 
       <TouchableHighlight
-        onPress={() => props.setShowLogin(true)}
         style={styles.buttonAlt}
       >
         <Text style={styles.buttonTextAlt}>Sign In</Text>
@@ -40,7 +39,6 @@ export default function LandingScreen(props) {
       </View>
 
       <TouchableHighlight
-          onPress={() => props.setShowLogin(false)}
         style={styles.buttonAlt}
       >
         <Text style={styles.buttonTextAlt}>Sign Up</Text>
