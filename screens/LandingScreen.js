@@ -6,15 +6,15 @@ import {
   View,
   TouchableHighlight
 } from "react-native";
-import { HeaderComponent } from "../../components/ScreenHeader";
-export default function AddMembersSreen(props) {
+import { HeaderComponent } from "../components/ScreenHeader";
+export default function LandingScreen(props) {
   return (
     <View style={styles.container}>
       {/* Don't delete this: This is the header component and
          you need it to navigate to other screens */}
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
 
-      <Text> Add Members Screen2</Text>
+      <Text> Landing Screen</Text>
     </View>
   );
 }
