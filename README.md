@@ -50,3 +50,11 @@ When working on a task do the following:
 <p> git add . </p>
 <p> git commit -m "---your commit message---" </p>
 <p> git push </p>
+
+<div>
+<h1>
+Navigating through the app for dev:
+</h1>
+<p>In the Sign up screen hit the sign in option and go to the sign in page </p>
+<p>Hit continue to get to the Home Screen and then tap the Open Menu to open navigation for all of the screens</p>
+</div>
