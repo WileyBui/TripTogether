@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableHighlight
+} from "react-native";
 
 import AuthScreen from "./screens/AuthScreen";
 
@@ -9,13 +15,23 @@ import HomeScreen from "./screens/HomeScreen";
 
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import SideNav from "./navigation/SideNav";
+import {
+  LeftHeaderComponent,
+  RightHeaderComponent
+} from "./components/ScreenHeader";
+
+import QuizOverviewScreen from "./screens/Quiz/QuizOverviewScreen";
 // import { NavigationContainer } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
 
 const Stack = createStackNavigator();
 
-function App() {
+function App(props) {
+  console.log("App.js props >>>>>");
+
+  console.log(props);
+
   return (
     // <View>
     <NavigationContainer>
@@ -24,10 +40,27 @@ function App() {
           name="Home"
           component={HomeScreen}
           options={{ headerShown: false }}
+
+          // options={{
+          //   headerLeftContainerStyle: props => (
+          //     <ScreenHeader title="My Trips" {...props} />
+          //   )
+          // }}
+          // options={{
+          //   headerLeft: navigation => (
+          //     <LeftHeaderComponent navigationProps={navigation} />
+          //   ),
+          //   headerRight: () => <RightHeaderComponent />
+          // }}
         />
         <Stack.Screen
           name="Auth"
           component={AuthScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Quiz"
+          component={QuizOverviewScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
