@@ -14,9 +14,9 @@ export default function TripListScreen(props) {
   //   console.log(props.navigation.toggleDrawer());
 
   const tripArray = [
-    { tripName: "Trip1", tripIcon: "#032224" },
-    { tripName: "Trip2", tripIcon: "#143b39" },
-    { tripName: "Trip3", tripIcon: "#032224" }
+    { tripName: "Trip1", tripIcon: "#032224", tripMembers: [], tripTasks: [] },
+    { tripName: "Trip2", tripIcon: "#143b39", tripMembers: [], tripTasks: [] },
+    { tripName: "Trip3", tripIcon: "#032224", tripMembers: [], tripTasks: [] }
   ];
 
   return (

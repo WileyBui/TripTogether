@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Button, Text, View } from "react-native";
 
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import SideNav from "../navigation/SideNav";
 // import AuthScreen from "./AuthScreen";
