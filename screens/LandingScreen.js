@@ -15,7 +15,9 @@ export default function LandingScreen(props) {
       {/* Don't delete this: This is the header component and
          you need it to navigate to other screens */}
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
-
+      <View style={styles.tagline}>
+        <Text>Set Budgets, Roles, and Tasks</Text>
+      </View>
       <Text style={styles.headertext}>Plan a TripTogether</Text>
 
 
@@ -46,7 +48,13 @@ export default function LandingScreen(props) {
 }
 
 const styles = StyleSheet.create({
-  headerText: {
+  tagline: {
+    color: "#fff",
+    fontSize: 35,
+    fontstyle: "italic",
+    backgroundColor: "#032224",
+    padding: 15
+  },headerText: {
     color: "#fff",
     fontSize: 35
   },container: {
