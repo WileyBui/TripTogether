@@ -16,7 +16,7 @@ export default function LandingScreen(props) {
          you need it to navigate to other screens */}
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
       <View style={styles.tagline}>
-        <Text>Set Budgets, Roles, and Tasks</Text>
+        <Text style={styles.tagline}>Set Budgets, Roles, and Tasks</Text>
       </View>
       <Text style={styles.headertext}>Plan a TripTogether</Text>
 
