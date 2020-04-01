@@ -5,37 +5,34 @@ import AuthScreen from "./screens/AuthScreen";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from "./screens/HomeScreen";
 
-// function HomeScreen({ navigation }) {
-//   return (
-//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-//       <Text>Home Screen</Text>
-//       <Button
-//         title="Go to Details"
-//         onPress={() => navigation.navigate("Details")}
-//       />
-//     </View>
-//   );
-// }
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import SideNav from "./navigation/SideNav";
+// import { NavigationContainer } from '@react-navigation/native';
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
+const Drawer = createDrawerNavigator();
 
 const Stack = createStackNavigator();
 
 function App() {
   return (
+    // <View>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Auth">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Auth" component={AuthScreen} />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Auth"
+          component={AuthScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
+    // </View>
   );
 }
 

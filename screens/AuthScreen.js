@@ -4,16 +4,25 @@ import Login from "../components/Login";
 import SignUp from "../components/SignUp";
 
 export default function AuthScreen(props) {
+  const [showLogin, setShowLogin] = React.useState(false);
+
   console.log(">>>>>>>>>>>>");
 
   console.log(props.navigation);
 
   return (
     <View style={styles.container}>
-      <Text>Auth Screen:</Text>
-      <Login />
-      <SignUp />
-      <Button title="Login" onPress={() => props.navigation.navigate("Home")} />
+      <View style={styles.header}>
+        <Text style={styles.headerText}>
+          {showLogin ? "Sign In" : "Sign Up"}
+        </Text>
+      </View>
+      {showLogin ? (
+        <Login authScreenProps={props} setShowLogin={setShowLogin} />
+      ) : (
+        <SignUp showLogin={showLogin} setShowLogin={setShowLogin} />
+      )}
+      {/* <Button title="Login" onPress={() => props.navigation.navigate("Home")} /> */}
     </View>
   );
 }
@@ -21,8 +30,20 @@ export default function AuthScreen(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#fff"
+    // alignItems: "center",
+    // justifyContent: "center"
+  },
+  header: {
+    height: 175,
+    backgroundColor: "#032224",
+    color: "#fff",
     alignItems: "center",
-    justifyContent: "center"
+    // justifyContent: "center",
+    paddingTop: 100
+  },
+  headerText: {
+    color: "#fff",
+    fontSize: 35
   }
 });
