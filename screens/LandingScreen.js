@@ -15,6 +15,25 @@ export default function LandingScreen(props) {
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
 
       <Text style={styles.header}>Plan a TripTogether</Text>
+
+
+
+      <TouchableHighlight
+        // onPress={loginButtonPressed()}
+        onPress={() => props.setShowLogin(true)}
+        style={styles.buttonAlt}
+      >
+        <Text style={styles.buttonTextAlt}>Sign In</Text>
+      </TouchableHighlight>
+
+      <TouchableHighlight
+        // onPress={loginButtonPressed()}
+        onPress={() => props.setShowLogin(false)}
+        style={styles.buttonAlt}
+      >
+        <Text style={styles.buttonTextAlt}>Sign Up</Text>
+      </TouchableHighlight>
+
     </View>
   );
 }
