@@ -16,7 +16,7 @@ export default function LandingScreen(props) {
          you need it to navigate to other screens */}
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
 
-      <Text style={styles.header}>Plan a TripTogether</Text>
+      <Text style={styles.headertext}>Plan a TripTogether</Text>
 
 
       <TouchableHighlight
@@ -46,7 +46,10 @@ export default function LandingScreen(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  headerText: {
+    color: "#fff",
+    fontSize: 35
+  },container: {
     margin: 20,
     flex: 1,
     backgroundColor: "#fff"
