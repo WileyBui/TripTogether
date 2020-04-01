@@ -22,22 +22,25 @@ export default function LandingScreen(props) {
 
 
       <TouchableHighlight
-        onPress={console.log("Button Pressed")}
+          onPress={console.log("Button Pressed")}
         style={styles.button}
       ></TouchableHighlight>
+
       <TouchableHighlight
-         onPress={loginButtonPressed()}
+        onPress={() => props.setShowLogin(true)}
         style={styles.buttonAlt}
       >
         <Text style={styles.buttonTextAlt}>Sign In</Text>
       </TouchableHighlight>
+
       <View style={{ alignItems: "center" }}>
         <Text style={{ color: "#032224", fontWeight: "bold" }}>
           Don't have an Account?
         </Text>
       </View>
+
       <TouchableHighlight
-         onPress={loginButtonPressed()}
+          onPress={() => props.setShowLogin(false)}
         style={styles.buttonAlt}
       >
         <Text style={styles.buttonTextAlt}>Sign Up</Text>
