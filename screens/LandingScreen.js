@@ -24,7 +24,7 @@ export default function LandingScreen(props) {
       <TouchableHighlight
         onPress={console.log("Button Pressed")}
         style={styles.button}
-      >
+      ></TouchableHighlight>
       <TouchableHighlight
          onPress={loginButtonPressed()}
         style={styles.buttonAlt}
