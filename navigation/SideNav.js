@@ -7,6 +7,8 @@ import AuthScreen from "../screens/AuthScreen";
 import TripListScreen from "../screens/TripListScreen";
 import QuizOverviewScreen from "../screens/Quiz/QuizOverviewScreen";
 import QuizResultsScreen from "../screens/Quiz/QuizResultsScreen";
+import QuizCoverScreen from "../screens/Quiz/QuizCoverScreen";
+
 import QuizContentScreen from "../screens/Quiz/QuizContentScreen";
 import AddMembersScreen from "../screens/Trips/AddMembersScreen";
 import AddTaskScreen from "../screens/Trips/AddTaskScreen";
@@ -30,6 +32,8 @@ export default function SideNav() {
       />
       <Drawer.Screen name="Quiz Content Screen" component={QuizContentScreen} />
       <Drawer.Screen name="Quiz Results Screen" component={QuizResultsScreen} />
+      <Drawer.Screen name="Quiz Cover Screen" component={QuizCoverScreen} />
+
       <Drawer.Screen name="Add Tasks Screen" component={AddTaskScreen} />
       <Drawer.Screen name="Add Members Screen" component={AddMembersScreen} />
       <Drawer.Screen
