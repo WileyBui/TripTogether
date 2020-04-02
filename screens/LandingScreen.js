@@ -15,12 +15,13 @@ export default function LandingScreen(props) {
       {/* Don't delete this: This is the header component and
          you need it to navigate to other screens */}
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
+//TAGLINE
       <View style={styles.tagline}>
         <Text>Set Budgets, Roles, and Tasks</Text>
       </View>
+//PLAN A TRIP
       <Text style={styles.headertext}>Plan a TripTogether</Text>
-
-
+//SIGN IN
       <TouchableHighlight
         style={styles.buttonAlt}
       >
@@ -32,7 +33,7 @@ export default function LandingScreen(props) {
           Don't have an Account?
         </Text>
       </View>
-
+//SIGN UP
       <TouchableHighlight
         style={styles.buttonAlt}
       >
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
   tagline: {
     color: "#fff",
     fontSize: 35,
-    fontstyle: "italic",
+    fontStyle: "italic",
     backgroundColor: "#032224",
     padding: 15
   },headerText: {
