@@ -105,9 +105,5 @@ const styles = StyleSheet.create({
     borderColor: "#032224",
     borderWidth: 3,
     borderRadius: 25
-  },
-  buttonTextAlt: {
-    color: "#032224",
-    fontWeight: "bold"
   }
 });
