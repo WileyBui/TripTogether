@@ -17,7 +17,7 @@ export default function LandingScreen(props) {
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
 //TAGLINE
       <View style={styles.tagline}>
-        <Text>Set Budgets, Roles, and Tasks</Text>
+        <Text style={styles.taglineText}>Set Budgets, Roles, and Tasks</Text>
       </View>
 //PLAN A TRIP
       <Text style={styles.headertext}>Plan a TripTogether</Text>
@@ -47,11 +47,14 @@ export default function LandingScreen(props) {
 const styles = StyleSheet.create({
   tagline: {
     color: "#fff",
-    fontSize: 35,
-    fontStyle: "italic",
     backgroundColor: "#032224",
     padding: 15
-  },headerText: {
+  },
+  taglineText: {
+    fontSize: 35,
+    fontStyle: "italic",
+  },
+  headerText: {
     color: "#fff",
     fontSize: 35
   },container: {
