@@ -99,6 +99,6 @@ const styles = StyleSheet.create({
     borderColor: "#032224",
     borderWidth: 2.4,
     borderRadius: 0,
-    paddingLeft: 0
+    paddingLeft: 10
   },
 });
