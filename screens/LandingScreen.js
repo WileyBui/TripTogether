@@ -18,11 +18,6 @@ export default function LandingScreen(props) {
 
       <Text style={styles.header}>Plan a TripTogether</Text>
 
-
-      <TouchableHighlight
-        onPress={console.log("Button Pressed")}
-        style={styles.button}
-      >
       <TouchableHighlight
         // onPress={loginButtonPressed()}
         onPress={() => props.setShowLogin(true)}
