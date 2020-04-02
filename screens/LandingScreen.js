@@ -16,15 +16,10 @@ export default function LandingScreen(props) {
          you need it to navigate to other screens */}
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
       <View style={styles.tagline}>
-        <Text style={styles.tagline}>Set Budgets, Roles, and Tasks</Text>
+        <Text>Set Budgets, Roles, and Tasks</Text>
       </View>
       <Text style={styles.headertext}>Plan a TripTogether</Text>
 
-
-      <TouchableHighlight
-          onPress={console.log("Button Pressed")}
-        style={styles.button}
-      ></TouchableHighlight>
 
       <TouchableHighlight
         style={styles.buttonAlt}
