@@ -15,26 +15,29 @@ export default function LandingScreen(props) {
       {/* Don't delete this: This is the header component and
          you need it to navigate to other screens */}
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
-//TAGLINE
-      <View style={styles.tagline}>
-        <Text style={styles.taglineText}>Set Budgets, Roles, and Tasks</Text>
-      </View>
-//PLAN A TRIP
-      <Text style={styles.headertext}>Plan a TripTogether</Text>
-//SIGN IN
+
+      <Text style={styles.header}>Plan a TripTogether</Text>
+
+
       <TouchableHighlight
+        onPress={console.log("Button Pressed")}
+        style={styles.button}
+      >
+      <TouchableHighlight
+        // onPress={loginButtonPressed()}
+        onPress={() => props.setShowLogin(true)}
         style={styles.buttonAlt}
       >
         <Text style={styles.buttonTextAlt}>Sign In</Text>
       </TouchableHighlight>
-
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: "center", marginTop: 60 }}>
         <Text style={{ color: "#032224", fontWeight: "bold" }}>
           Don't have an Account?
         </Text>
       </View>
-//SIGN UP
       <TouchableHighlight
+        // onPress={loginButtonPressed()}
+        onPress={() => props.setShowLogin(false)}
         style={styles.buttonAlt}
       >
         <Text style={styles.buttonTextAlt}>Sign Up</Text>
@@ -45,19 +48,7 @@ export default function LandingScreen(props) {
 }
 
 const styles = StyleSheet.create({
-  tagline: {
-    color: "#fff",
-    backgroundColor: "#032224",
-    padding: 15
-  },
-  taglineText: {
-    fontSize: 35,
-    fontStyle: "italic",
-  },
-  headerText: {
-    color: "#fff",
-    fontSize: 35
-  },container: {
+  container: {
     margin: 20,
     flex: 1,
     backgroundColor: "#fff"
