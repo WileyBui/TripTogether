@@ -17,14 +17,15 @@ export default function LandingScreen(props) {
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
 
 
-      <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}>
-            Plan a TripTogether
+          Set Roles, Budgets, and Tasks
           </Text>
         </View>
-      </View>
 
+        <Text>
+          Plan a TripTogether
+        </Text>
 
       <TouchableHighlight
         // onPress={loginButtonPressed()}
