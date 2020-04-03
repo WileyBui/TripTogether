@@ -26,8 +26,6 @@ export default function LandingScreen(props) {
       </View>
 
 
-      <Text style={styles.header}>Plan a TripTogether</Text>
-
       <TouchableHighlight
         // onPress={loginButtonPressed()}
         onPress={() => props.setShowLogin(true)}
@@ -35,7 +33,7 @@ export default function LandingScreen(props) {
       >
         <Text style={styles.buttonTextAlt}>Sign In</Text>
       </TouchableHighlight>
-      <View style={{ alignItems: "center", marginTop: 60 }}>
+      <View style={{ alignItems: "center"}}>
         <Text style={{ color: "#032224", fontWeight: "bold" }}>
           Don't have an Account?
         </Text>
@@ -66,7 +64,7 @@ const styles = StyleSheet.create({
     fontSize: 35
   },
   container: {
-    margin: 20,
+    margin: 0,
     flex: 1,
     backgroundColor: "#fff"
   },
