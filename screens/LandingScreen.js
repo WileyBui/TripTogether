@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     fontSize: 35
   },
   container: {
-    margin: 0,
+    marginTop: 20,
     flex: 1,
     backgroundColor: "#fff"
   },
