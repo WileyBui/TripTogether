@@ -29,7 +29,34 @@ import { Ionicons } from "@expo/vector-icons";
 //     </View>
 //   );
 // };
+export const HeaderComponentWithBackButton = props => {
+  console.log("Header Component ++++++>");
+  console.log(props);
 
+  return (
+    <View style={styles.container}>
+      <View style={styles.leftSection}>
+        <TouchableHighlight
+          onPress={() => props.headerProps.navigation.goBack()}
+        >
+          {/* <Text>Open Menu</Text> */}
+          <Ionicons name="md-arrow-back" size={32} color="#032224" />
+        </TouchableHighlight>
+      </View>
+      <View style={styles.middleSection}>
+        <Text style={styles.headerTitle}>{props.screenTitle}</Text>
+      </View>
+      <View style={styles.rightSection}>
+        <TouchableHighlight
+        // onPress={() => props.headerProps.navigation.toggleDrawer()}
+        >
+          {/* <Text>Open Menu</Text> */}
+          <Ionicons name="ios-search" size={32} color="#032224" />
+        </TouchableHighlight>
+      </View>
+    </View>
+  );
+};
 export const HeaderComponent = props => {
   console.log("Header Component ++++++>");
   console.log(props);
