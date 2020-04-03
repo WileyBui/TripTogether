@@ -23,6 +23,7 @@ import {
 import QuizOverviewScreen from "./screens/Quiz/QuizOverviewScreen";
 import NewTripScreen from "./screens/Trips/NewTripScreen";
 // import { NavigationContainer } from '@react-navigation/native';
+import LandingScreen from "./screens/LandingScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -35,10 +36,15 @@ function App(props) {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Auth">
+      <Stack.Navigator initialRouteName="Landing">
         <Stack.Screen
           name="Home"
           component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Landing"
+          component={LandingScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen

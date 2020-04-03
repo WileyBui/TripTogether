@@ -10,53 +10,62 @@ import {
 import { HeaderComponent } from "../components/ScreenHeader";
 
 export default function LandingScreen(props) {
-  return (
+  const [showLogin, setShowLogin] = React.useState(false);
 
+  console.log("Landing Screen >>>>>>>>>>>>>>>");
+
+  console.log(props);
+
+  return (
     <View style={styles.container}>
       {/* Don't delete this: This is the header component and
          you need it to navigate to other screens */}
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
 
       <View style={styles.logoContainer}>
-        <Image style={styles.logo}source={require('../assets/logo.png')}></Image>
+        <Image
+          style={styles.logo}
+          source={require("../assets/logo.png")}
+        ></Image>
       </View>
 
       <View style={styles.tagline}>
-        <Text style={styles.taglineText}>
-          Set Roles, Budgets, and Tasks
-        </Text>
+        <Text style={styles.taglineText}>Set Roles, Budgets, and Tasks</Text>
       </View>
-
-
 
       <View style={styles.prompt}>
-        <Text style={styles.promptText}>
-          Plan a TripTogether
-        </Text>
+        <Text style={styles.promptText}>Plan a TripTogether</Text>
       </View>
-
-
 
       <TouchableHighlight
         // onPress={loginButtonPressed()}
-        onPress={() => props.setShowLogin(true)}
+        onPress={() =>
+          props.navigation.navigate({
+            name: "Auth",
+            params: { showLogin: true }
+          })
+        }
         style={styles.button}
       >
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableHighlight>
-      <View style={{ alignItems: "center"}}>
+      <View style={{ alignItems: "center" }}>
         <Text style={{ color: "#032224", fontWeight: "bold" }}>
           Don't have an Account?
         </Text>
       </View>
       <TouchableHighlight
         // onPress={loginButtonPressed()}
-        onPress={() => props.setShowLogin(false)}
+        onPress={() =>
+          props.navigation.navigate({
+            name: "Auth",
+            params: { showLogin: false }
+          })
+        }
         style={styles.button}
       >
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableHighlight>
-
     </View>
   );
 }
@@ -71,7 +80,7 @@ const styles = StyleSheet.create({
 
   logo: {
     width: 300,
-    resizeMode: "contain",
+    resizeMode: "contain"
   },
   tagline: {
     height: 75,
@@ -79,8 +88,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 0,
-
+    paddingTop: 0
   },
   prompt: {
     height: 75,
@@ -89,12 +97,12 @@ const styles = StyleSheet.create({
     paddingTop: 0
   },
   promptText: {
-    fontSize:20,
+    fontSize: 20
   },
   taglineText: {
     color: "#fff",
     fontSize: 25,
-    fontStyle: "italic",
+    fontStyle: "italic"
   },
   container: {
     marginTop: 20,
