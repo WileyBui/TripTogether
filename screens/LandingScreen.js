@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: "center",
     justifyContent: "center",
-    width: 400,
     height: 200
   },
 
@@ -94,10 +93,11 @@ const styles = StyleSheet.create({
     height: 75,
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 0
+    paddingTop: 10
   },
   promptText: {
-    fontSize: 20
+    fontSize: 25,
+    fontWeight: "bold"
   },
   taglineText: {
     color: "#fff",
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   },
   button: {
     margin: 10,
-    marginTop: 20,
+    marginTop: 15,
     alignItems: "center",
     justifyContent: "center",
     width: "95%",
@@ -133,20 +133,4 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold"
   },
-  buttonAlt: {
-    margin: 10,
-    marginTop: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    width: "95%",
-    height: 50,
-    backgroundColor: "#fff",
-    borderColor: "#032224",
-    borderWidth: 3,
-    borderRadius: 25
-  },
-  buttonTextAlt: {
-    color: "#032224",
-    fontWeight: "bold"
-  }
 });
