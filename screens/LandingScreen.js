@@ -4,7 +4,8 @@ import {
   Button,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  Image
 } from "react-native";
 import { HeaderComponent } from "../components/ScreenHeader";
 
@@ -16,23 +17,32 @@ export default function LandingScreen(props) {
          you need it to navigate to other screens */}
       <HeaderComponent headerProps={props} screenTitle="Add Member" />
 
+      <View style={styles.logoContainer}>
+        <Image style={styles.logo}source={require('../assets/logo.png')}></Image>
+      </View>
 
-        <View style={styles.header}>
-          <Text style={styles.headerText}>
+      <View style={styles.tagline}>
+        <Text style={styles.taglineText}>
           Set Roles, Budgets, and Tasks
-          </Text>
-        </View>
+        </Text>
+      </View>
 
-        <Text>
+
+
+      <View style={styles.prompt}>
+        <Text style={styles.promptText}>
           Plan a TripTogether
         </Text>
+      </View>
+
+
 
       <TouchableHighlight
         // onPress={loginButtonPressed()}
         onPress={() => props.setShowLogin(true)}
-        style={styles.buttonAlt}
+        style={styles.button}
       >
-        <Text style={styles.buttonTextAlt}>Sign In</Text>
+        <Text style={styles.buttonText}>Sign In</Text>
       </TouchableHighlight>
       <View style={{ alignItems: "center"}}>
         <Text style={{ color: "#032224", fontWeight: "bold" }}>
@@ -42,9 +52,9 @@ export default function LandingScreen(props) {
       <TouchableHighlight
         // onPress={loginButtonPressed()}
         onPress={() => props.setShowLogin(false)}
-        style={styles.buttonAlt}
+        style={styles.button}
       >
-        <Text style={styles.buttonTextAlt}>Sign Up</Text>
+        <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableHighlight>
 
     </View>
@@ -52,17 +62,39 @@ export default function LandingScreen(props) {
 }
 
 const styles = StyleSheet.create({
-  header: {
-    height: 175,
+  logoContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: 400,
+    height: 200
+  },
+
+  logo: {
+    width: 300,
+    resizeMode: "contain",
+  },
+  tagline: {
+    height: 75,
     backgroundColor: "#032224",
     color: "#fff",
     alignItems: "center",
-    // justifyContent: "center",
-    paddingTop: 100
+    justifyContent: "center",
+    paddingTop: 0,
+
   },
-  headerText: {
+  prompt: {
+    height: 75,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: 0
+  },
+  promptText: {
+    fontSize:20,
+  },
+  taglineText: {
     color: "#fff",
-    fontSize: 35
+    fontSize: 25,
+    fontStyle: "italic",
   },
   container: {
     marginTop: 20,
@@ -95,7 +127,7 @@ const styles = StyleSheet.create({
   },
   buttonAlt: {
     margin: 10,
-    marginTop: 20,
+    marginTop: 10,
     alignItems: "center",
     justifyContent: "center",
     width: "95%",
