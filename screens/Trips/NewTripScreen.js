@@ -14,6 +14,13 @@ export default function CurrentTripScreen(props) {
   console.log("NEW TRIP >>>>>>>>>>");
   console.log(props);
 
+  const members = props.route.params.members
+    ? Object.values(props.route.params.members)
+    : [];
+  const membersToShow = props.route.params.members ? members.slice(0, 3) : [];
+
+  // console.log("Length: " + Object.values(props.route.params.members).length);
+
   // const imageList = Object.values(props.route.params.members);
   return (
     <View style={styles.screenContainer}>
@@ -32,7 +39,7 @@ export default function CurrentTripScreen(props) {
           <View style={styles.messageAndAddRow}>
             <View style={[styles.leftColumn, { flexDirection: "row" }]}>
               {props.route.params.members ? (
-                Object.values(props.route.params.members).map(imageURL => (
+                membersToShow.map(imageURL => (
                   <Image
                     style={styles.memberImage}
                     source={{
@@ -43,6 +50,12 @@ export default function CurrentTripScreen(props) {
               ) : (
                 <Text>No members yet</Text>
               )}
+
+              {members.length > 3 ? (
+                <TouchableOpacity style={styles.moreMembers}>
+                  <Text style={{ color: "#fff", fontWeight: "bold" }}>...</Text>
+                </TouchableOpacity>
+              ) : null}
             </View>
             <View style={styles.rightColumn}>
               <TouchableOpacity
@@ -233,5 +246,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
 
     marginHorizontal: 10
+  },
+  moreMembers: {
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+    backgroundColor: "#032224",
+    marginHorizontal: 10,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
