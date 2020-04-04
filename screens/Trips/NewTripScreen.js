@@ -45,7 +45,12 @@ export default function CurrentTripScreen(props) {
               )}
             </View>
             <View style={styles.rightColumn}>
-              <TouchableOpacity style={styles.addTouchableOpacity}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.navigation.navigate({ name: "AddMember", params: {} })
+                }
+                style={styles.addTouchableOpacity}
+              >
                 <Text style={styles.addButton}>+Add</Text>
               </TouchableOpacity>
             </View>
@@ -77,7 +82,12 @@ export default function CurrentTripScreen(props) {
               )}
             </View>
             <View style={styles.rightColumn}>
-              <TouchableOpacity style={styles.addTouchableOpacity}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.navigation.navigate({ name: "AddTask", params: {} })
+                }
+                style={styles.addTouchableOpacity}
+              >
                 <Text style={styles.addButton}>+Add</Text>
               </TouchableOpacity>
             </View>
@@ -106,7 +116,15 @@ export default function CurrentTripScreen(props) {
               <Text>Sunday:</Text>
             </View>
             <View style={styles.rightColumn}>
-              <TouchableOpacity style={styles.expandTouchableOpacity}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.navigation.navigate({
+                    name: "TripTimeline",
+                    params: {}
+                  })
+                }
+                style={styles.expandTouchableOpacity}
+              >
                 <Text style={styles.addButton}>Expand Schedule</Text>
                 {/* <Ionicons name="ios-expand" size={16} color="#fff" /> */}
               </TouchableOpacity>

@@ -13,6 +13,9 @@ import AuthScreen from "../screens/AuthScreen";
 import QuizOverviewScreen from "../screens/Quiz/QuizOverviewScreen";
 import NewTripScreen from "../screens/Trips/NewTripScreen";
 import LandingScreen from "../screens/LandingScreen";
+import AddMembersScreen from "../screens/Trips/AddMembersScreen";
+import AddTaskScreen from "../screens/Trips/AddTaskScreen";
+import TripTimelineScreen from "../screens/Trips/TripTimelineScreen";
 
 const Stack = createStackNavigator();
 
@@ -43,6 +46,21 @@ export default function StackNav(props) {
         <Stack.Screen
           name="NewTrips"
           component={NewTripScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AddMember"
+          component={AddMembersScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AddTask"
+          component={AddTaskScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TripTimeline"
+          component={TripTimelineScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
