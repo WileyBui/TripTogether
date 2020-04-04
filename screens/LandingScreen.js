@@ -20,7 +20,7 @@ export default function LandingScreen(props) {
     <View style={styles.container}>
       {/* Don't delete this: This is the header component and
          you need it to navigate to other screens */}
-      <HeaderComponent headerProps={props} screenTitle="Add Member" />
+      {/* <HeaderComponent headerProps={props} screenTitle="Add Member" /> */}
 
       <View style={styles.logoContainer}>
         <Image
@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: "center",
     justifyContent: "center",
-    height: 200
+    height: 275,
+    marginTop: 30
   },
 
   logo: {
@@ -132,5 +133,5 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontWeight: "bold"
-  },
+  }
 });
