@@ -7,14 +7,37 @@ import {
   TouchableHighlight
 } from "react-native";
 import { HeaderComponent } from "../../components/ScreenHeader";
+
 export default function QuizCoverScreen(props) {
+  const [quizName, setQuizName] = React.useState("Trip Location");
+
+  function continueButtonClicked() {
+    if (quizName === "Trip Location") {
+      setQuizName("Hotel Type");
+    } else if(quizName === "Hotel Type") {
+      setQuizName("Budget");
+    } else if(quizName === "Budget") {
+      setQuizName("Role Planning");
+    }
+    
+    props.navigation.navigate("QuizCoverScreen");
+  }
+
   return (
     <View style={styles.container}>
       {/* Don't delete this: This is the header component and
          you need it to navigate to other screens */}
-      <HeaderComponent headerProps={props} screenTitle="Quiz Cover" />
+      <HeaderComponent headerProps={props} screenTitle={quizName + " Quiz"} />
 
-      <Text> Quiz Cover Screen</Text>
+      <Text style={styles.title}>{quizName + " Quiz"}</Text>
+
+      <TouchableHighlight
+        onPress={() => continueButtonClicked()}
+        style={styles.continueButton}
+      >
+        <Text style={styles.continue}>CONTINUE</Text>
+      </TouchableHighlight>
+
     </View>
   );
 }
@@ -24,6 +47,27 @@ const styles = StyleSheet.create({
     paddingTop: "10%",
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center"
+    alignItems: "center",
+  },
+
+  title: {
+    marginVertical: "50%",
+    height: 130,
+    fontSize: 45,
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+  },
+
+  continue: {
+    color: "white",
+    textAlign: 'center',
+    paddingVertical: 15,
+  },
+  continueButton: {
+    backgroundColor: "#032224",
+    width: "90%",
+    // marginHorizontal: 50,
   }
 });

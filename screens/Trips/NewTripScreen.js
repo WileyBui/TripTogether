@@ -209,6 +209,6 @@ const styles = StyleSheet.create({
 
     borderRadius: 20,
 
-    marginHorizontal: 10
+    marginHorizontal: 5
   }
 });

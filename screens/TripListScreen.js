@@ -9,51 +9,77 @@ import {
 } from "react-native";
 import { HeaderComponent } from "../components/ScreenHeader";
 import TripCard from "../components/TripCard";
-import TripData from "../config/staticdata.json";
+import credentials from "../config/credentials.json";
+
 export default function TripListScreen(props) {
-  console.log("Trip list >>>");
-  //   console.log(props.navigation.toggleDrawer());
-  console.log(TripData.defaultPlaces);
+  const [isReady, setIsReady] = React.useState(false);
+  const [TripData, setTripData] = React.useState({});
 
-  const tripArray = [
-    { tripName: "Trip1", tripIcon: "#032224", tripMembers: [], tripTasks: [] },
-    { tripName: "Trip2", tripIcon: "#143b39", tripMembers: [], tripTasks: [] },
-    { tripName: "Trip3", tripIcon: "#032224", tripMembers: [], tripTasks: [] }
-  ];
+  if (isReady) {
+    return renderPage();
+  } else {
+    let req = new XMLHttpRequest();
 
-  return (
-    <View style={styles.container}>
-      {/* Don't delete this: This is the header component and
-         you need it to navigate to other screens */}
-      <HeaderComponent headerProps={props} screenTitle="My Trips" />
+    req.onreadystatechange = () => {
+      if (req.readyState == 4 && req.status == 200) {
+        setTripData(JSON.parse(req.responseText));
+        setIsReady(true);
+      } else {
+        retrievingData(`Error connection with the database: ${req.status}`);
+      }
+    };
 
-      {/* <Text>List of Trips</Text> */}
-      <ScrollView style={styles.scrollView}>
-        {TripData.defaultPlaces.map(trips => (
-          <TripCard
-            key={trips.tripName}
-            tripName={trips.tripName}
-            tripIcon={trips.image}
-            tripTasks={trips.tasks}
-            tripMembers={trips.members}
-            parentProps={props}
-          />
-        ))}
-      </ScrollView>
+    req.open("GET", credentials.id, true);
+    req.setRequestHeader("Content-Type", "application/json");
+    req.setRequestHeader("secret-key", credentials.secretKey);
+    req.send();
+    return retrievingData("Retrieving data...");
+  }
+
+  function retrievingData(message) {
+    return (
       <View>
-        <TouchableHighlight style={styles.newTripButton}>
-          <Text
-            onPress={() =>
-              props.navigation.navigate({ name: "NewTrips", params: {} })
-            }
-            style={styles.buttonText}
-          >
-            New Trip
-          </Text>
-        </TouchableHighlight>
+        <HeaderComponent headerProps={props} screenTitle="My Trips" />
+        <Text>{message}</Text>
       </View>
-    </View>
-  );
+    );
+  }
+
+  function renderPage() {
+    return (
+      <View style={styles.container}>
+        {/* Don't delete this: This is the header component and
+         you need it to navigate to other screens */}
+        <HeaderComponent headerProps={props} screenTitle="My Trips" />
+
+        {/* <Text>List of Trips</Text> */}
+        <ScrollView style={styles.scrollView}>
+          {TripData.defaultPlaces.map(trips => (
+            <TripCard
+              key={trips.tripName}
+              tripName={trips.tripName}
+              tripIcon={trips.image}
+              tripTasks={trips.tasks}
+              tripMembers={trips.members}
+              parentProps={props}
+            />
+          ))}
+        </ScrollView>
+        <View>
+          <TouchableHighlight style={styles.newTripButton}>
+            <Text
+              onPress={() =>
+                props.navigation.navigate({ name: "NewTrips", params: {} })
+              }
+              style={styles.buttonText}
+            >
+              New Trip
+          </Text>
+          </TouchableHighlight>
+        </View>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

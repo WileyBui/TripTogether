@@ -13,6 +13,9 @@ import AuthScreen from "../screens/AuthScreen";
 import QuizOverviewScreen from "../screens/Quiz/QuizOverviewScreen";
 import NewTripScreen from "../screens/Trips/NewTripScreen";
 
+import QuizCoverScreen from "../screens/Quiz/QuizCoverScreen";
+import TripListScreen from "../screens/TripListScreen";
+
 const Stack = createStackNavigator();
 
 export default function StackNav(props) {
@@ -37,6 +40,16 @@ export default function StackNav(props) {
         <Stack.Screen
           name="NewTrips"
           component={NewTripScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="QuizCoverScreen"
+          component={QuizCoverScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TripListScreen"
+          component={TripListScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
