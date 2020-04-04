@@ -43,7 +43,7 @@ export default function SideNav() {
         name="Trip Timeline Screen"
         component={TripTimelineScreen}
       />
-      <Drawer.Screen name="New Trip Screen" component={NewTripScreen} />
+      {/* <Drawer.Screen name="New Trip Screen" component={NewTripScreen} /> */}
       <Drawer.Screen name="Landing Screen" component={LandingScreen} />
     </Drawer.Navigator>
   );

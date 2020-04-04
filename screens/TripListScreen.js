@@ -9,9 +9,11 @@ import {
 } from "react-native";
 import { HeaderComponent } from "../components/ScreenHeader";
 import TripCard from "../components/TripCard";
+import TripData from "../config/staticdata.json";
 export default function TripListScreen(props) {
   console.log("Trip list >>>");
   //   console.log(props.navigation.toggleDrawer());
+  console.log(TripData.defaultPlaces);
 
   const tripArray = [
     { tripName: "Trip1", tripIcon: "#032224", tripMembers: [], tripTasks: [] },
@@ -27,18 +29,23 @@ export default function TripListScreen(props) {
 
       {/* <Text>List of Trips</Text> */}
       <ScrollView style={styles.scrollView}>
-        {tripArray.map(trips => (
+        {TripData.defaultPlaces.map(trips => (
           <TripCard
             key={trips.tripName}
             tripName={trips.tripName}
-            tripIcon={trips.tripIcon}
+            tripIcon={trips.image}
+            tripTasks={trips.tasks}
+            tripMembers={trips.members}
+            parentProps={props}
           />
         ))}
       </ScrollView>
       <View>
         <TouchableHighlight style={styles.newTripButton}>
           <Text
-            onPress={() => props.navigation.navigate("NewTrips")}
+            onPress={() =>
+              props.navigation.navigate({ name: "NewTrips", params: {} })
+            }
             style={styles.buttonText}
           >
             New Trip
