@@ -7,7 +7,7 @@ import {
   Image,
   TextInput
 } from "react-native";
-import { HeaderComponent } from "../../components/ScreenHeader";
+import { HeaderComponentWithBackButton } from "../../components/ScreenHeader";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function AddMembersSreen(props) {
@@ -15,53 +15,59 @@ export default function AddMembersSreen(props) {
     <View style={styles.container}>
       {/* Don't delete this: This is the header component and
          you need it to navigate to other screens */}
-      <HeaderComponent headerProps={props} screenTitle="Add Member" />
+      <HeaderComponentWithBackButton
+        headerProps={props}
+        screenTitle="Add Member"
+      />
 
       <View
         style={{
           flexDirection: "row",
-          padding: 30
+          paddingLeft: 50,
+          paddingRight: 50,
+          paddingBottom: 30,
+          paddingTop: 15
         }}
       >
         <View style={styles.leftComponent}>
           <Text>
-            <Ionicons name="ios-search" size={20} color="black" />
+            <Ionicons name="ios-search" size={20} color="#818181" />
           </Text>
         </View>
         <View style={styles.rightComponent}>
-          <Text>Search for Member</Text>
+          {/* <Text>Search for Member</Text> */}
+          <TextInput
+            style={styles.searchBarInput}
+            placeholder="Search User"
+            placeholderTextColor="#818181"
+            secureTextEntry={false}
+          />
         </View>
-
-        {/* <TextInput
-          style={styles.input5}
-          placeholder="Search your member"
-          placeholderTextColor="#032224"
-        /> */}
       </View>
 
-      <Text style={styles.font}>or</Text>
+      <Text style={styles.font}>Or</Text>
       <TextInput
         style={styles.input}
         placeholder="Name:"
-        placeholderTextColor="#032224"
+        placeholderTextColor="#818181"
         secureTextEntry={false}
       />
       <TextInput
         style={styles.input}
         placeholder="Role:"
-        placeholderTextColor="#032224"
+        placeholderTextColor="#818181"
         secureTextEntry={false}
       />
       <TextInput
         style={styles.input}
         placeholder="Email:"
-        placeholderTextColor="#032224"
+        placeholderTextColor="#818181"
         secureTextEntry={false}
       />
       <TextInput
         style={styles.input}
         placeholder="Phone:"
-        placeholderTextColor="#032224"
+        placeholderTextColor="#818181"
         secureTextEntry={false}
       />
       <TouchableHighlight style={styles.button}>
@@ -79,58 +85,56 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   button: {
-    margin: 10,
-    position: "absolute",
-    bottom: 0,
+    marginTop: 20,
     alignItems: "center",
     justifyContent: "center",
-    width: "95%",
+    width: "90%",
     height: 50,
     backgroundColor: "#032224",
     borderColor: "#032224",
     // borderWidth: 2,
-    borderRadius: 0
+    borderRadius: 5
   },
   buttonText: {
     color: "#fff",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    fontSize: 20
   },
   font: {
     color: "#032224",
-    fontSize: 40,
-    fontWeight: "bold",
-    textShadowColor: "#C0C0C0",
-    textShadowRadius: 2,
-    textShadowOffset: { width: 2, height: 2 }
+    fontSize: 16,
+    fontWeight: "bold"
   },
-  input5: {
-    // margin: 15,
-    height: 50,
-    width: 280,
-    borderBottomColor: "#032224",
-    borderBottomWidth: 2.4
-  },
+
   input: {
-    margin: 15,
+    margin: 10,
     height: 50,
-    width: 280,
-    borderColor: "#032224",
-    borderWidth: 2.4,
+    width: 320,
+    borderColor: "#B5B3B3",
+    borderWidth: 1.5,
     borderRadius: 0,
-    paddingLeft: 10
+    paddingLeft: 20
+  },
+  searchBarInput: {
+    borderColor: "#B5B3B3",
+    // borderWidth: 1.5,
+    borderRadius: 0,
+    borderWidth: 0
+    // paddingLeft: 20
   },
   leftComponent: {
     // backgroundColor: "red",
-    width: "20%",
+    width: "10%",
     // paddingBottom: 5,
-    borderBottomColor: "#000",
-    borderBottomWidth: 3,
-    alignItems: "center"
+    // paddingLeft: 10,
+    borderBottomColor: "#B5B3B3",
+    borderBottomWidth: 1.5
+    // alignItems: "center"
   },
   rightComponent: {
     // backgroundColor: "blue",
-    width: "80%",
-    borderBottomColor: "#000",
-    borderBottomWidth: 3
+    width: "90%",
+    borderBottomColor: "#B5B3B3",
+    borderBottomWidth: 1.5
   }
 });

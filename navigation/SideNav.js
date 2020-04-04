@@ -4,6 +4,9 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 //Screens:
 import AuthScreen from "../screens/AuthScreen";
+
+import LandingScreen from "../screens/LandingScreen";
+
 import TripListScreen from "../screens/TripListScreen";
 import QuizOverviewScreen from "../screens/Quiz/QuizOverviewScreen";
 import QuizResultsScreen from "../screens/Quiz/QuizResultsScreen";
@@ -23,7 +26,7 @@ export default function SideNav() {
       <Drawer.Screen name="Home" component={TripListScreen} />
       <Drawer.Screen
         name="Sign Out"
-        component={AuthScreen}
+        component={LandingScreen}
         options={{ headerShown: false }}
       />
       <Drawer.Screen
@@ -40,7 +43,8 @@ export default function SideNav() {
         name="Trip Timeline Screen"
         component={TripTimelineScreen}
       />
-      <Drawer.Screen name="New Trip Screen" component={NewTripScreen} />
+      {/* <Drawer.Screen name="New Trip Screen" component={NewTripScreen} /> */}
+      <Drawer.Screen name="Landing Screen" component={LandingScreen} />
     </Drawer.Navigator>
   );
 }
