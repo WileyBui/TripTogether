@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Ionicons, MaterialIcons, FontAwesome } from "@expo/vector-icons";
 import { HeaderComponentWithBackButton } from "../../components/ScreenHeader";
+import MoreMemberButton from "../../components/MoreMemberButton";
 
 export default function CurrentTripScreen(props) {
   console.log("NEW TRIP >>>>>>>>>>");
@@ -52,9 +53,7 @@ export default function CurrentTripScreen(props) {
               )}
 
               {members.length > 3 ? (
-                <TouchableOpacity style={styles.moreMembers}>
-                  <Text style={{ color: "#fff", fontWeight: "bold" }}>...</Text>
-                </TouchableOpacity>
+                <MoreMemberButton members={members} />
               ) : null}
             </View>
             <View style={styles.rightColumn}>
