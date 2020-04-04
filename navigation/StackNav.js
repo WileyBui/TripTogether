@@ -12,16 +12,22 @@ import HomeScreen from "../screens/HomeScreen";
 import AuthScreen from "../screens/AuthScreen";
 import QuizOverviewScreen from "../screens/Quiz/QuizOverviewScreen";
 import NewTripScreen from "../screens/Trips/NewTripScreen";
+import LandingScreen from "../screens/LandingScreen";
 
 const Stack = createStackNavigator();
 
 export default function StackNav(props) {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Auth">
+      <Stack.Navigator initialRouteName="Landing">
         <Stack.Screen
           name="Home"
           component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Landing"
+          component={LandingScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen

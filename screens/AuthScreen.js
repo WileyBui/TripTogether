@@ -4,11 +4,13 @@ import Login from "../components/Login";
 import SignUp from "../components/SignUp";
 
 export default function AuthScreen(props) {
-  const [showLogin, setShowLogin] = React.useState(false);
+  const [showLogin, setShowLogin] = React.useState(
+    props.route.params.showLogin
+  );
 
-  console.log(">>>>>>>>>>>>");
+  console.log("Auth >>>>>>>>>>>>");
 
-  console.log(props.navigation);
+  console.log(props);
 
   return (
     <View style={styles.container}>

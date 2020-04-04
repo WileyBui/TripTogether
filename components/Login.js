@@ -11,8 +11,6 @@ import {
 export default function Login(props) {
   const [userName, setUserName] = React.useState("");
   const [password, setPassword] = React.useState("");
-  console.log(">>>>>");
-  //   console.log();
 
   return (
     <View style={styles.container}>
