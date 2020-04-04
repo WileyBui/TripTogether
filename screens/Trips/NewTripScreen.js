@@ -132,7 +132,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 15,
     paddingTop: 20,
-    paddingLeft: 20
+    paddingLeft: 20,
+    shadowColor: "#C0C0C0",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 2
   },
 
   boldHeader: {
