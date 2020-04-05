@@ -1,3 +1,4 @@
+  
 import React from "react";
 import {
   StyleSheet,
@@ -9,10 +10,18 @@ import {
 } from "react-native";
 import { Ionicons, MaterialIcons, FontAwesome } from "@expo/vector-icons";
 import { HeaderComponentWithBackButton } from "../../components/ScreenHeader";
+import MoreMemberButton from "../../components/MoreMemberButton";
 
 export default function CurrentTripScreen(props) {
   console.log("NEW TRIP >>>>>>>>>>");
   console.log(props);
+
+  const members = props.route.params.members
+    ? Object.values(props.route.params.members)
+    : [];
+  const membersToShow = props.route.params.members ? members.slice(0, 3) : [];
+
+  // console.log("Length: " + Object.values(props.route.params.members).length);
 
   // const imageList = Object.values(props.route.params.members);
   return (
@@ -32,7 +41,7 @@ export default function CurrentTripScreen(props) {
           <View style={styles.messageAndAddRow}>
             <View style={[styles.leftColumn, { flexDirection: "row" }]}>
               {props.route.params.members ? (
-                Object.values(props.route.params.members).map(imageURL => (
+                membersToShow.map(imageURL => (
                   <Image
                     style={styles.memberImage}
                     source={{
@@ -43,9 +52,18 @@ export default function CurrentTripScreen(props) {
               ) : (
                 <Text>No members yet</Text>
               )}
+
+              {members.length > 3 ? (
+                <MoreMemberButton members={members} />
+              ) : null}
             </View>
             <View style={styles.rightColumn}>
-              <TouchableOpacity style={styles.addTouchableOpacity}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.navigation.navigate({ name: "AddMember", params: {} })
+                }
+                style={styles.addTouchableOpacity}
+              >
                 <Text style={styles.addButton}>+Add</Text>
               </TouchableOpacity>
             </View>
@@ -77,7 +95,12 @@ export default function CurrentTripScreen(props) {
               )}
             </View>
             <View style={styles.rightColumn}>
-              <TouchableOpacity style={styles.addTouchableOpacity}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.navigation.navigate({ name: "AddTask", params: {} })
+                }
+                style={styles.addTouchableOpacity}
+              >
                 <Text style={styles.addButton}>+Add</Text>
               </TouchableOpacity>
             </View>
@@ -106,7 +129,15 @@ export default function CurrentTripScreen(props) {
               <Text>Sunday:</Text>
             </View>
             <View style={styles.rightColumn}>
-              <TouchableOpacity style={styles.expandTouchableOpacity}>
+              <TouchableOpacity
+                onPress={() =>
+                  props.navigation.navigate({
+                    name: "TripTimeline",
+                    params: {}
+                  })
+                }
+                style={styles.expandTouchableOpacity}
+              >
                 <Text style={styles.addButton}>Expand Schedule</Text>
                 {/* <Ionicons name="ios-expand" size={16} color="#fff" /> */}
               </TouchableOpacity>
@@ -132,7 +163,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 15,
     paddingTop: 20,
-    paddingLeft: 20
+    paddingLeft: 20,
+    shadowColor: "#C0C0C0",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 2
   },
 
   boldHeader: {
@@ -209,6 +245,15 @@ const styles = StyleSheet.create({
 
     borderRadius: 20,
 
-    marginHorizontal: 5
+    marginHorizontal: 10
+  },
+  moreMembers: {
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+    backgroundColor: "#032224",
+    marginHorizontal: 10,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });

@@ -12,6 +12,10 @@ import HomeScreen from "../screens/HomeScreen";
 import AuthScreen from "../screens/AuthScreen";
 import QuizOverviewScreen from "../screens/Quiz/QuizOverviewScreen";
 import NewTripScreen from "../screens/Trips/NewTripScreen";
+import LandingScreen from "../screens/LandingScreen";
+import AddMembersScreen from "../screens/Trips/AddMembersScreen";
+import AddTaskScreen from "../screens/Trips/AddTaskScreen";
+import TripTimelineScreen from "../screens/Trips/TripTimelineScreen";
 
 import QuizCoverScreen from "../screens/Quiz/QuizCoverScreen";
 import TripListScreen from "../screens/TripListScreen";
@@ -21,10 +25,15 @@ const Stack = createStackNavigator();
 export default function StackNav(props) {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Auth">
+      <Stack.Navigator initialRouteName="Landing">
         <Stack.Screen
           name="Home"
           component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Landing"
+          component={LandingScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -43,13 +52,18 @@ export default function StackNav(props) {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="QuizCoverScreen"
-          component={QuizCoverScreen}
+          name="AddMember"
+          component={AddMembersScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="TripListScreen"
-          component={TripListScreen}
+          name="AddTask"
+          component={AddTaskScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TripTimeline"
+          component={TripTimelineScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

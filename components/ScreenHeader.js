@@ -8,27 +8,6 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-// export const LeftHeaderComponent = props => {
-//   console.log("Hamburger icon >>>>>>>");
-
-//   console.log(props);
-
-//   return (
-//     <View>
-//       <TouchableHighlight>
-//         <Text>Hamburger icon</Text>
-//       </TouchableHighlight>
-//     </View>
-//   );
-// };
-
-// export const RightHeaderComponent = props => {
-//   return (
-//     <View>
-//       <Text>Right</Text>
-//     </View>
-//   );
-// };
 export const HeaderComponentWithBackButton = props => {
   console.log("Header Component ++++++>");
   console.log(props);
@@ -91,8 +70,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#fafafa",
     marginBottom: 30,
-    borderBottomWidth: 1,
-    borderBottomColor: "#f0f0f0"
+    borderBottomWidth: 2,
+    borderBottomColor: "#f0f0f0",
+    elevation: 2
     // justifyContent: "center"
   },
   middleSection: {
