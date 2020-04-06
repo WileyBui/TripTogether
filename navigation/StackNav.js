@@ -66,6 +66,11 @@ export default function StackNav(props) {
           component={TripTimelineScreen}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="QuizCoverScreen"
+          component={QuizCoverScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
