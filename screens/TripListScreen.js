@@ -18,21 +18,50 @@ export default function TripListScreen(props) {
   if (isReady) {
     return renderPage();
   } else {
-    let req = new XMLHttpRequest();
 
-    req.onreadystatechange = () => {
-      if (req.readyState == 4 && req.status == 200) {
-        setTripData(JSON.parse(req.responseText));
+    // const request = new XMLHttpRequest();
+    // request.open("PUT", "https://extendsclass.com/api/json-storage/bin/edfbcba", true);
+    // request.setRequestHeader("Content-type", "application/json");
+    // request.setRequestHeader("Security-key", "Your security key");
+    // request.onreadystatechange = () => {
+    //   if (request.readyState == 4 && request.status == 200) {
+    //     setTripData(JSON.parse(request.responseText));
+    //     setIsReady(true);
+    //   }
+    // };
+    // request.send('{"name": "my updated JSON"}');
+
+
+    const request = new XMLHttpRequest();
+
+    request.open("GET", "https://extendsclass.com/api/json-storage/bin/edfbcba", true);
+    request.setRequestHeader("Content-type", "application/json");
+    // request.setRequestHeader("Security-key", "Your security key");
+    request.onreadystatechange = () => {
+      if (request.readyState == 4 && request.status == 200) {
+        setTripData(JSON.parse(request.responseText));
         setIsReady(true);
       } else {
-        retrievingData(`Error connection with the database: ${req.status}`);
+        retrievingData(`Error connection with the database: ${request.status}`);
       }
     };
+    request.send();
 
-    req.open("GET", credentials.id, true);
-    req.setRequestHeader("Content-Type", "application/json");
-    req.setRequestHeader("secret-key", credentials.secretKey);
-    req.send();
+
+    // let req = new XMLHttpRequest();
+    // req.onreadystatechange = () => {
+    //   if (req.readyState == 4 && req.status == 200) {
+    //     setTripData(JSON.parse(req.responseText));
+    //     setIsReady(true);
+    //   } else {
+    //     retrievingData(`Error connection with the database: ${req.status}`);
+    //   }
+    // };
+
+    // req.open("GET", credentials.id, true);
+    // req.setRequestHeader("Content-Type", "application/json");
+    // req.setRequestHeader("secret-key", credentials.secretKey);
+    // req.send();
     return retrievingData("Retrieving data...");
   }
 
