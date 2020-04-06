@@ -9,18 +9,23 @@ import {
 import { HeaderComponent } from "../../components/ScreenHeader";
 
 export default function QuizCoverScreen(props) {
+
   const [quizName, setQuizName] = React.useState("Trip Location");
 
   function continueButtonClicked() {
-    if (quizName === "Trip Location") {
-      setQuizName("Hotel Type");
-    } else if(quizName === "Hotel Type") {
-      setQuizName("Budget");
-    } else if(quizName === "Budget") {
-      setQuizName("Role Planning");
-    }
-    
-    props.navigation.navigate("QuizCoverScreen");
+    props.navigation.navigate({ name: "QuizFormatScreen", params: { title: quizName } });
+
+    setTimeout(function() {
+      if (quizName == "Trip Location") {
+        setQuizName("Hotel Type");
+      } else if (quizName == "Hotel Type") {
+        setQuizName("Budget");
+      } else if (quizName == "Budget") {
+        setQuizName("Role Planning");
+      } else {
+        setQuizName("Trip Location");
+      }
+    }, 500);
   }
 
   return (
