@@ -1,3 +1,4 @@
+  
 import React from "react";
 import {
   StyleSheet,
@@ -42,6 +43,7 @@ export default function CurrentTripScreen(props) {
               {props.route.params.members ? (
                 membersToShow.map(imageURL => (
                   <Image
+                    key={imageURL}
                     style={styles.memberImage}
                     source={{
                       uri: imageURL

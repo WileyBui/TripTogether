@@ -17,6 +17,9 @@ import AddMembersScreen from "../screens/Trips/AddMembersScreen";
 import AddTaskScreen from "../screens/Trips/AddTaskScreen";
 import TripTimelineScreen from "../screens/Trips/TripTimelineScreen";
 
+import QuizCoverScreen from "../screens/Quiz/QuizCoverScreen";
+import TripListScreen from "../screens/TripListScreen";
+
 const Stack = createStackNavigator();
 
 export default function StackNav(props) {
@@ -61,6 +64,11 @@ export default function StackNav(props) {
         <Stack.Screen
           name="TripTimeline"
           component={TripTimelineScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="QuizCoverScreen"
+          component={QuizCoverScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
