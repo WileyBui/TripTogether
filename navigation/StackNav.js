@@ -1,11 +1,4 @@
 import React from "react";
-import {
-  StyleSheet,
-  Button,
-  Text,
-  View,
-  TouchableHighlight
-} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
@@ -16,17 +9,15 @@ import LandingScreen from "../screens/LandingScreen";
 import AddMembersScreen from "../screens/Trips/AddMembersScreen";
 import AddTaskScreen from "../screens/Trips/AddTaskScreen";
 import TripTimelineScreen from "../screens/Trips/TripTimelineScreen";
-
 import QuizCoverScreen from "../screens/Quiz/QuizCoverScreen";
 import QuizFormatScreen from "../screens/Quiz/QuizFormatScreen";
-import TripListScreen from "../screens/TripListScreen";
 
 const Stack = createStackNavigator();
 
 export default function StackNav(props) {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Landing">
         <Stack.Screen
           name="Home"
           component={HomeScreen}
