@@ -1,39 +1,51 @@
 import React from "react";
 import {
   StyleSheet,
-  Button,
   Text,
   View,
-  TouchableHighlight
+  ScrollView,
+  TouchableHighlight,
+  TextInput
 } from "react-native";
 
 import { HeaderComponent } from "../../components/ScreenHeader";
-import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
+import RadioForm from 'react-native-simple-radio-button';
 
 export default function QuizFormatScreen(props) {
-  const questions = [
-    {
-      label: 'Option 1',
-      value: 'op1'
-    },
-    {
-      label: 'Option 2',
-      value: 'op2'
-    },
-    {
-      label: 'Option 3',
-      value: 'op3'
-    },
-    {
-      label: 'Option 4',
-      value: 'op4'
-    }
-  ];
+  const [newOptionMessage, setNewOptionMessage] = React.useState("");
+
+  var userOptions = [], userOptionTypes;
+
+  if (props.route.params.title === "Trip Location") {
+    userOptionTypes = ["North America", "Central America", "Asia", "Europe"];
+  } else if (props.route.params.title === "Hotel Type") {
+    userOptionTypes = ["AirBnb", "Motel", "Hotel", "Hostels", "Rent a room", "Housesit", "Couchsurf", "Camp"];
+  } else if (props.route.params.title === "Budget") {
+    userOptionTypes = ["$500", "$750", "$1000", "$1250", "$1500"];
+  } else {
+    userOptionTypes = ["admin", "planner"];
+  }
+
+  for (let i = 0; i < userOptionTypes.length; i++) {
+    userOptions.push({label: <Text>{userOptionTypes[i]}</Text>});
+  }
+
+  const [options, setOptions] = React.useState(userOptions);
 
   function continueBtnClicked() {
     props.navigation.navigate({ name: "QuizCoverScreen", params: { title: props.route.params.title } });
   }
 
+  function addNewField() {
+    if (newOptionMessage !== "") {
+      setOptions([...options, {
+        label:
+          <Text>{newOptionMessage}</Text>,
+        value: "test1"
+      }]);
+      setNewOptionMessage("");
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -41,25 +53,46 @@ export default function QuizFormatScreen(props) {
          you need it to navigate to other screens */}
       <HeaderComponent headerProps={props} screenTitle={props.route.params.title + " Question"} />
 
-      <Text style={styles.title}>{props.route.params.title + " Question"}</Text>
+      <Text style={styles.title}>{props.route.params.title}</Text>
+      <ScrollView style={styles.content}>
+        <RadioForm
+          radio_props={options}
+          buttonColor={'#032224'}
+          onPress={() => console.log(2)}
+          labelStyle={{ fontSize: 20, color: '#032224' }}
+          buttonSize={13}
+          buttonOuterSize={30}
+        />
+      </ScrollView>
 
-      <RadioForm
-        radio_props={questions}
-        buttonColor={'#032224'}
-        onPress={() => console.log(2)}
-        labelStyle={{ fontSize: 20, color: '#032224' }}
-        buttonSize={13}
-        buttonOuterSize={30}
-        style={styles.radioButton}
-      />
+      <View style={styles.optionView}>
+        <TextInput
+          style={styles.input}
+          placeholder="Add new option"
+          placeholderTextColor="#818181"
+          secureTextEntry={false}
+          value={newOptionMessage}
+          onChangeText={(text) => setNewOptionMessage(text)}
+        />
+
+        <View style={{ paddingHorizontal: "1%" }}></View>
+
+        <TouchableHighlight
+          onPress={() => addNewField()}
+          style={[styles.continueButton, styles.addButton]}
+        >
+          <Text style={styles.continue}>+ Add</Text>
+        </TouchableHighlight>
+      </View>
+
       <TouchableHighlight
         onPress={() => continueBtnClicked()}
-        style={styles.continueButton}
+        style={[styles.continueButton, { marginBottom: "-4.5%" }]}
       >
-        <Text style={styles.continue}>CONTINUE</Text>
+        <Text style={styles.continue}>SAVE & CONTINUE</Text>
       </TouchableHighlight>
 
-    </View >
+    </View>
   );
 }
 
@@ -71,8 +104,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
+  content: {
+    width: '60%',
+    marginTop: "10%",
+    alignSelf: 'center',
+    // alignItems: 'baseline'
+  },
+
   title: {
-    marginTop: "25%",
     fontSize: 37,
     textAlign: "center",
     alignItems: "center",
@@ -80,9 +119,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 
-  radioButton: {
-    fontSize: 20,
-    marginTop: "15%"
+  optionView: {
+    flexDirection: "row",
+    marginHorizontal: 21,
   },
 
   continue: {
@@ -90,10 +129,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 15,
   },
+
   continueButton: {
     backgroundColor: "#032224",
     width: "90%",
-    marginTop: "46%"
-    // marginHorizontal: 50,
-  }
+    marginTop: "5%"
+  },
+
+  addButton: {
+    width: "25%",
+    marginTop: 0,
+  },
+  input: {
+    height: 50,
+    paddingLeft: 15,
+    bottom: 0,
+    width: '73%',
+    borderColor: "#B5B3B3",
+    borderWidth: 1,
+    borderRadius: 5,
+  },
 });
