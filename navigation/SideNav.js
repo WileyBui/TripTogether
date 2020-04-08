@@ -29,13 +29,10 @@ export default function SideNav() {
         component={LandingScreen}
         options={{ headerShown: false }}
       />
-      <Drawer.Screen
-        name="Quiz Overview Screen"
-        component={QuizOverviewScreen}
-      />
+      <Drawer.Screen name="Quiz Overview Screen" component={QuizOverviewScreen} />
+      <Drawer.Screen name="Quiz Cover Screen" component={QuizCoverScreen} />
       <Drawer.Screen name="Quiz Content Screen" component={QuizContentScreen} />
       <Drawer.Screen name="Quiz Results Screen" component={QuizResultsScreen} />
-      <Drawer.Screen name="Quiz Cover Screen" component={QuizCoverScreen} />
 
       <Drawer.Screen name="Add Tasks Screen" component={AddTaskScreen} />
       <Drawer.Screen name="Add Members Screen" component={AddMembersScreen} />
