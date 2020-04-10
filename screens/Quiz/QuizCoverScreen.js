@@ -13,7 +13,7 @@ export default function QuizCoverScreen(props) {
   const [quizName, setQuizName] = React.useState("Trip Location");
 
   function continueButtonClicked() {
-    props.navigation.navigate({ name: "QuizFormatScreen", params: { title: quizName } });
+    props.navigation.navigate({ name: "QuizContentScreen", params: { title: quizName } });
 
     setTimeout(function() {
       if (quizName == "Trip Location") {
