@@ -1,4 +1,3 @@
-  
 import React from "react";
 import {
   StyleSheet,
@@ -6,7 +5,7 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image
+  Image,
 } from "react-native";
 import { Ionicons, MaterialIcons, FontAwesome } from "@expo/vector-icons";
 import { HeaderComponentWithBackButton } from "../../components/ScreenHeader";
@@ -41,12 +40,12 @@ export default function CurrentTripScreen(props) {
           <View style={styles.messageAndAddRow}>
             <View style={[styles.leftColumn, { flexDirection: "row" }]}>
               {props.route.params.members ? (
-                membersToShow.map(imageURL => (
+                membersToShow.map((imageURL) => (
                   <Image
                     key={imageURL}
                     style={styles.memberImage}
                     source={{
-                      uri: imageURL
+                      uri: imageURL,
                     }}
                   />
                 ))
@@ -77,7 +76,7 @@ export default function CurrentTripScreen(props) {
           <View style={styles.messageAndAddRow}>
             <View style={styles.leftColumn}>
               {props.route.params.tasks ? (
-                props.route.params.tasks.map(tasks => (
+                props.route.params.tasks.map((tasks) => (
                   <View style={{ flexDirection: "row" }}>
                     <Text>
                       {tasks.taskName + " "} Due: {tasks.taskDate}{" "}
@@ -91,9 +90,28 @@ export default function CurrentTripScreen(props) {
                     />
                   </View>
                 ))
-              ) : (
+              ) : props.route.params.taskName !== undefined ? null : (
                 <Text>No tasks yet</Text>
               )}
+
+              {props.route.params.taskName !== undefined ? (
+                <View style={{ flexDirection: "row" }}>
+                  <Text>
+                    {props.route.params.taskName + " "} Due:{" "}
+                    {props.route.params.date.getMonth() +
+                      1 +
+                      "/" +
+                      props.route.params.date.getDate() +
+                      "/" +
+                      props.route.params.date.getFullYear()}{" "}
+                  </Text>
+                  <MaterialIcons
+                    name="check-box-outline-blank"
+                    size={16}
+                    color="#003300"
+                  />
+                </View>
+              ) : null}
             </View>
             <View style={styles.rightColumn}>
               <TouchableOpacity
@@ -134,7 +152,7 @@ export default function CurrentTripScreen(props) {
                 onPress={() =>
                   props.navigation.navigate({
                     name: "TripTimeline",
-                    params: {}
+                    params: {},
                   })
                 }
                 style={styles.expandTouchableOpacity}
@@ -155,7 +173,7 @@ const styles = StyleSheet.create({
     paddingTop: "10%",
     flex: 1,
     backgroundColor: "#fafafa",
-    alignItems: "center"
+    alignItems: "center",
   },
   container: {
     marginTop: 15,
@@ -169,16 +187,16 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
-    elevation: 2
+    elevation: 2,
   },
 
   boldHeader: {
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
 
   messageAndAddRow: {
     flex: 1,
-    flexDirection: "row"
+    flexDirection: "row",
     // alignItems: "center",
     // justifyContent: "center"
   },
@@ -186,12 +204,12 @@ const styles = StyleSheet.create({
   rightColumn: {
     // backgroundColor: "red",
     width: "30%",
-    marginTop: 20
+    marginTop: 20,
   },
   leftColumn: {
     // backgroundColor: "blue",
     width: "70%",
-    marginTop: 20
+    marginTop: 20,
     // flexDirection: "row"
   },
 
@@ -199,7 +217,7 @@ const styles = StyleSheet.create({
     // flex: 13,
     // flexDirection: "row",
     paddingVertical: 15,
-    paddingLeft: 10
+    paddingLeft: 10,
   },
 
   addTouchableOpacity: {
@@ -210,14 +228,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 15,
-    borderRadius: 50
+    borderRadius: 50,
     // paddingVertical: 5,
     // paddingHorizontal: 0
   },
 
   addButton: {
     color: "white",
-    textAlign: "center"
+    textAlign: "center",
   },
 
   squareButton: {
@@ -227,7 +245,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     backgroundColor: "#032224",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
 
   expandTouchableOpacity: {
@@ -236,7 +254,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#032224",
     marginHorizontal: 15,
     paddingVertical: 28,
-    paddingHorizontal: 0
+    paddingHorizontal: 0,
   },
 
   memberImage: {
@@ -246,7 +264,7 @@ const styles = StyleSheet.create({
 
     borderRadius: 20,
 
-    marginHorizontal: 10
+    marginHorizontal: 10,
   },
   moreMembers: {
     height: 40,
@@ -255,6 +273,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#032224",
     marginHorizontal: 10,
     alignItems: "center",
-    justifyContent: "center"
-  }
+    justifyContent: "center",
+  },
 });

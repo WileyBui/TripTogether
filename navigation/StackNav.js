@@ -11,6 +11,7 @@ import AddTaskScreen from "../screens/Trips/AddTaskScreen";
 import TripTimelineScreen from "../screens/Trips/TripTimelineScreen";
 import QuizCoverScreen from "../screens/Quiz/QuizCoverScreen";
 import QuizFormatScreen from "../screens/Quiz/QuizFormatScreen";
+import TaskConfirmation from "../screens/Trips/TaskConfirmation";
 
 const Stack = createStackNavigator();
 
@@ -66,6 +67,11 @@ export default function StackNav(props) {
         <Stack.Screen
           name="QuizFormatScreen"
           component={QuizFormatScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TaskConfirmation"
+          component={TaskConfirmation}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
