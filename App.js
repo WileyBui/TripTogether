@@ -4,7 +4,7 @@ import {
   Text,
   View,
   Button,
-  TouchableHighlight
+  TouchableHighlight,
 } from "react-native";
 
 import StackNav from "./navigation/StackNav";
