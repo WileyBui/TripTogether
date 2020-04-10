@@ -4,18 +4,20 @@ import {
   Button,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
 } from "react-native";
-import { HeaderComponent } from "../../components/ScreenHeader";
+import { HeaderComponentWithBackButton } from "../../components/ScreenHeader";
 export default function QuizOverviewScreen(props) {
   return (
     <View style={styles.container}>
       {/* Don't delete this: This is the header component and
        you need it to navigate to other screens */}
-      <HeaderComponent headerProps={props} screenTitle={"Plan a trip"} />
+      <HeaderComponentWithBackButton
+        headerProps={props}
+        screenTitle={"Plan a trip"}
+      />
 
       <Text style={styles.title}>Plan a trip</Text>
-
 
       <View style={styles.bottomRow}>
         <TouchableHighlight
@@ -25,7 +27,7 @@ export default function QuizOverviewScreen(props) {
           <Text style={styles.later}>Later</Text>
         </TouchableHighlight>
 
-        <View style={{marginHorizontal: 5}}></View>
+        <View style={{ marginHorizontal: 5 }}></View>
 
         <TouchableHighlight
           onPress={() => props.navigation.navigate("QuizCoverScreen")}
@@ -33,9 +35,7 @@ export default function QuizOverviewScreen(props) {
         >
           <Text style={styles.continue}>Sure</Text>
         </TouchableHighlight>
-
       </View>
-
     </View>
   );
 }
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 
   later: {
     color: "#032224",
-    textAlign: 'center',
+    textAlign: "center",
     paddingVertical: 15,
     fontSize: 18,
     fontWeight: "bold",
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
 
   continue: {
     color: "white",
-    textAlign: 'center',
+    textAlign: "center",
     paddingVertical: 15,
     fontSize: 18,
     fontWeight: "bold",
@@ -89,6 +89,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#032224",
     width: "50%",
     // ma
-  }
-
+  },
 });

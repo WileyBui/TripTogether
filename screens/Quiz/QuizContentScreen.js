@@ -5,23 +5,36 @@ import {
   View,
   ScrollView,
   TouchableHighlight,
-  TextInput
+  TextInput,
 } from "react-native";
 
-import { HeaderComponent } from "../../components/ScreenHeader";
-import RadioForm from 'react-native-simple-radio-button';
+import { HeaderComponentWithBackButton } from "../../components/ScreenHeader";
+import RadioForm from "react-native-simple-radio-button";
 
 export default function QuizContentScreen(props) {
   const [newOptionMessage, setNewOptionMessage] = React.useState("");
 
-  var userOptions = [], userOptionTypes;
+  var userOptions = [],
+    userOptionTypes;
 
-  var title = (typeof props.route.params == "undefined")? "Trip Location": props.route.params.title;
+  var title =
+    typeof props.route.params == "undefined"
+      ? "Trip Location"
+      : props.route.params.title;
 
   if (title === "Trip Location") {
     userOptionTypes = ["North America", "Central America", "Asia", "Europe"];
   } else if (title === "Hotel Type") {
-    userOptionTypes = ["AirBnb", "Motel", "Hotel", "Hostels", "Rent a room", "Housesit", "Couchsurf", "Camp"];
+    userOptionTypes = [
+      "AirBnb",
+      "Motel",
+      "Hotel",
+      "Hostels",
+      "Rent a room",
+      "Housesit",
+      "Couchsurf",
+      "Camp",
+    ];
   } else if (title === "Budget") {
     userOptionTypes = ["$500", "$750", "$1000", "$1250", "$1500"];
   } else {
@@ -35,16 +48,21 @@ export default function QuizContentScreen(props) {
   const [options, setOptions] = React.useState(userOptions);
 
   function continueBtnClicked() {
-    props.navigation.navigate({ name: "QuizCoverScreen", params: { title: title } });
+    props.navigation.navigate({
+      name: "QuizCoverScreen",
+      params: { title: title },
+    });
   }
 
   function addNewField() {
     if (newOptionMessage !== "") {
-      setOptions([...options, {
-        label:
-          <Text>{newOptionMessage}</Text>,
-        value: "test1"
-      }]);
+      setOptions([
+        ...options,
+        {
+          label: <Text>{newOptionMessage}</Text>,
+          value: "test1",
+        },
+      ]);
       setNewOptionMessage("");
     }
   }
@@ -53,15 +71,18 @@ export default function QuizContentScreen(props) {
     <View style={styles.container}>
       {/* Don't delete this: This is the header component and
          you need it to navigate to other screens */}
-      <HeaderComponent headerProps={props} screenTitle={title + " Question"} />
+      <HeaderComponentWithBackButton
+        headerProps={props}
+        screenTitle={title + " Question"}
+      />
 
       <Text style={styles.title}>{title}</Text>
       <ScrollView style={styles.content}>
         <RadioForm
           radio_props={options}
-          buttonColor={'#032224'}
+          buttonColor={"#032224"}
           onPress={() => console.log(2)}
-          labelStyle={{ fontSize: 20, color: '#032224' }}
+          labelStyle={{ fontSize: 20, color: "#032224" }}
           buttonSize={13}
           buttonOuterSize={30}
         />
@@ -93,7 +114,6 @@ export default function QuizContentScreen(props) {
       >
         <Text style={styles.continue}>SAVE & CONTINUE</Text>
       </TouchableHighlight>
-
     </View>
   );
 }
@@ -107,9 +127,9 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    width: '60%',
+    width: "60%",
     marginTop: "10%",
-    alignSelf: 'center',
+    alignSelf: "center",
     // alignItems: 'baseline'
   },
 
@@ -128,14 +148,14 @@ const styles = StyleSheet.create({
 
   continue: {
     color: "white",
-    textAlign: 'center',
+    textAlign: "center",
     paddingVertical: 15,
   },
 
   continueButton: {
     backgroundColor: "#032224",
     width: "90%",
-    marginTop: "5%"
+    marginTop: "5%",
   },
 
   addButton: {
@@ -146,7 +166,7 @@ const styles = StyleSheet.create({
     height: 50,
     paddingLeft: 15,
     bottom: 0,
-    width: '73%',
+    width: "73%",
     borderColor: "#B5B3B3",
     borderWidth: 1,
     borderRadius: 5,

@@ -4,7 +4,7 @@ import {
   Text,
   View,
   TouchableHighlight,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { HeaderComponent } from "../components/ScreenHeader";
 import TripCard from "../components/TripCard";
@@ -21,7 +21,7 @@ export default function TripListScreen(props) {
 
       {/* <Text>List of Trips</Text> */}
       <ScrollView style={styles.scrollView}>
-        {TripData.defaultPlaces.map(trips => (
+        {TripData.defaultPlaces.map((trips) => (
           <TripCard
             key={trips.tripName}
             tripName={trips.tripName}
@@ -31,6 +31,25 @@ export default function TripListScreen(props) {
             parentProps={props}
           />
         ))}
+        <View style={styles.takeQuizCard}>
+          <Text style={styles.takeQuizText}>
+            Don't know where to go for your next trip? Take our quiz to find
+            out!
+          </Text>
+          <TouchableHighlight style={styles.takeQuizButton}>
+            <Text
+              onPress={() =>
+                props.navigation.navigate({
+                  name: "QuizCoverScreen",
+                  params: {},
+                })
+              }
+              style={styles.takeQuizButtonText}
+            >
+              Take Quiz
+            </Text>
+          </TouchableHighlight>
+        </View>
       </ScrollView>
       <View>
         <TouchableHighlight style={styles.newTripButton}>
@@ -53,11 +72,11 @@ const styles = StyleSheet.create({
     paddingTop: "10%",
     flex: 1,
     backgroundColor: "#fafafa",
-    alignItems: "center"
+    alignItems: "center",
   },
   scrollView: {
     // backgroundColor: "pink",
-    marginHorizontal: 10
+    marginHorizontal: 10,
   },
   newTripButton: {
     margin: 10,
@@ -69,11 +88,51 @@ const styles = StyleSheet.create({
     backgroundColor: "#032224",
     borderColor: "#032224",
     // borderWidth: 2,
-    borderRadius: 25
+    borderRadius: 25,
   },
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
-    fontSize: 20
-  }
+    fontSize: 20,
+  },
+  takeQuizCard: {
+    backgroundColor: "#032224",
+    paddingTop: 25,
+    height: 150,
+    padding: 15,
+    // marginBottom: 20,
+    shadowColor: "#C0C0C0",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 2,
+    // justifyContent: "center",
+    alignItems: "center",
+  },
+  takeQuizText: {
+    fontWeight: "bold",
+    fontSize: 18,
+    color: "#fff",
+    // color: "#032224",
+    textAlign: "center",
+  },
+  takeQuizButton: {
+    margin: 15,
+    // marginTop: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    width: 150,
+    height: 40,
+    backgroundColor: "#fff",
+    borderColor: "#032224",
+    // borderWidth: 2,
+    borderRadius: 25,
+  },
+  takeQuizButtonText: {
+    color: "#032224",
+    // color: "#fff",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
 });
+//
