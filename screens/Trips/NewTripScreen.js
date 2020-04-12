@@ -15,6 +15,9 @@ export default function CurrentTripScreen(props) {
   console.log("NEW TRIP >>>>>>>>>>");
   console.log(props);
 
+  const progress = (1 / props.route.params.tasks.length) * 100 + "%";
+  console.log(progress);
+
   const members = props.route.params.members
     ? Object.values(props.route.params.members)
     : [];
@@ -150,9 +153,13 @@ export default function CurrentTripScreen(props) {
         {/* Progress */}
         <View style={styles.container}>
           <Text style={styles.boldHeader}>Progress</Text>
-          <Text style={styles.message}>
-            No progresses made yet / to be written
-          </Text>
+          {props.route.params.tasks ? (
+            <View style={styles.progressBarBase}>
+              <View style={[styles.progress, , { width: progress }]} />
+            </View>
+          ) : (
+            <Text style={styles.message}>No progresses made yet.</Text>
+          )}
         </View>
 
         {/* Schedule */}
@@ -295,5 +302,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     alignItems: "center",
     justifyContent: "center",
+  },
+  progressBarBase: {
+    marginTop: 20,
+    width: "100%",
+    height: 10,
+    backgroundColor: "#D3D3D3",
+  },
+  progress: {
+    height: 10,
+    backgroundColor: "#032224",
   },
 });
