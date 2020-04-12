@@ -4,18 +4,21 @@ import {
   Button,
   Text,
   View,
+  Image,
   TouchableHighlight
 } from "react-native";
 export default function TripCard(props) {
+  console.log("Trip Card");
+
+  console.log(props);
+
   return (
     <View style={styles.container}>
       <View style={styles.leftSection}>
-        <View
-          style={{
-            width: 50,
-            height: 50,
-            backgroundColor: props.tripIcon,
-            borderRadius: 25
+        <Image
+          style={styles.tripIcon}
+          source={{
+            uri: props.tripIcon
           }}
         />
       </View>
@@ -30,7 +33,19 @@ export default function TripCard(props) {
         </Text>
       </View>
       <View style={styles.rightSection}>
-        <TouchableHighlight style={styles.editButton}>
+        <TouchableHighlight
+          onPress={() =>
+            props.parentProps.navigation.navigate({
+              name: "NewTrips",
+              params: {
+                name: props.tripName,
+                members: props.tripMembers,
+                tasks: props.tripTasks
+              }
+            })
+          }
+          style={styles.editButton}
+        >
           <Text style={styles.buttonText}>Edit</Text>
         </TouchableHighlight>
       </View>
@@ -87,5 +102,10 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontWeight: "bold"
+  },
+  tripIcon: {
+    width: 50,
+    height: 50,
+    borderRadius: 25
   }
 });
