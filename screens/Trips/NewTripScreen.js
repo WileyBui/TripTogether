@@ -164,7 +164,7 @@ export default function CurrentTripScreen(props) {
 
         {/* Schedule */}
         <View style={styles.container}>
-          <Text style={styles.boldHeader}>Schedule</Text>
+          <Text style={styles.boldHeader}>Trip Schedule</Text>
           <View style={styles.messageAndAddRow}>
             <View style={styles.leftColumn}>
               <Text>Monday:</Text>
@@ -180,7 +180,9 @@ export default function CurrentTripScreen(props) {
                 onPress={() =>
                   props.navigation.navigate({
                     name: "TripTimeline",
-                    params: {},
+                    params: {
+                      tasks: props.route.params.tasks,
+                    },
                   })
                 }
                 style={styles.expandTouchableOpacity}

@@ -10,6 +10,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { HeaderComponentWithBackButton } from "../../components/ScreenHeader";
+import { Ionicons, MaterialIcons, FontAwesome } from "@expo/vector-icons";
+
 export default function TripTimelineScreen(props) {
   return (
     <View style={styles.container}>
@@ -17,7 +19,7 @@ export default function TripTimelineScreen(props) {
        you need it to navigate to other screens */}
       <HeaderComponentWithBackButton
         headerProps={props}
-        screenTitle="Trip Timeline"
+        screenTitle="Trip Schedule"
       />
 
       <Calendar
@@ -103,23 +105,28 @@ export default function TripTimelineScreen(props) {
       />
 
       <View style={styles.assignments}>
-        <Text style={styles.title}>Assignments</Text>
-
-        <View style={styles.row}>
-          <TouchableOpacity style={styles.square}></TouchableOpacity>
-          <TouchableOpacity style={styles.square}></TouchableOpacity>
-          <TouchableOpacity style={styles.square}>
-            <Text
-              style={{
-                color: "white",
-                textAlign: "center",
-                fontSize: 17,
-                marginTop: "12%",
-              }}
-            >
-              +134
-            </Text>
-          </TouchableOpacity>
+        <View style={styles.taskContainer}>
+          <Text style={styles.title}>Tasks</Text>
+          <View style={styles.leftColumn}>
+            {props.route.params.tasks ? (
+              props.route.params.tasks.map((tasks) => (
+                <View style={{ flexDirection: "row" }}>
+                  <Text style={{ fontSize: 16, marginBottom: 10 }}>
+                    {tasks.taskName + " "} Due: {tasks.taskDate}{" "}
+                  </Text>
+                  <MaterialIcons
+                    name={
+                      tasks.isDone ? "check-box" : "check-box-outline-blank"
+                    }
+                    size={16}
+                    color="#003300"
+                  />
+                </View>
+              ))
+            ) : props.route.params.taskName !== undefined ? null : (
+              <Text>No tasks yet</Text>
+            )}
+          </View>
         </View>
       </View>
     </View>
@@ -131,6 +138,20 @@ const styles = StyleSheet.create({
     paddingTop: "10%",
     flex: 1,
     backgroundColor: "#fafafa",
+  },
+  taskContainer: {
+    marginTop: 15,
+    marginHorizontal: 10,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    padding: 15,
+    paddingTop: 20,
+    paddingLeft: 20,
+    shadowColor: "#C0C0C0",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 2,
   },
   button: {
     margin: 5,
@@ -160,7 +181,8 @@ const styles = StyleSheet.create({
     color: "#032224",
     fontWeight: "bold",
     fontSize: 20,
-    marginLeft: 20,
+    marginLeft: 10,
+    paddingBottom: 20,
   },
 
   row: {
