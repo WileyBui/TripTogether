@@ -49,12 +49,20 @@ export default function CurrentTripScreen(props) {
                     }}
                   />
                 ))
-              ) : (
-                <Text>No members yet</Text>
+              ) : props.route.params.addedMember !== undefined ? null : (
+                <Text>No Members yet</Text>
               )}
 
               {members.length > 3 ? (
                 <MoreMemberButton members={members} />
+              ) : props.route.params.addedMember !== undefined ? (
+                <Image
+                  style={styles.memberImage}
+                  source={{
+                    uri:
+                      "https://canvas.umn.edu/images/thumbnails/8246831/aiRZVRrOT2FWAy3zM6hIEXjaVYLCnOEdw2EPUpSj",
+                  }}
+                />
               ) : null}
             </View>
             <View style={styles.rightColumn}>
