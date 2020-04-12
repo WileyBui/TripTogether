@@ -40,7 +40,7 @@ export default function TripListScreen(props) {
             tripIcon="test"
             tripTasks=""
             tripMembers=""
-            isAdmin=""
+            isAdmin={true}
             parentProps={props}
           />
         ) : null}
