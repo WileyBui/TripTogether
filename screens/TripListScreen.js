@@ -10,6 +10,7 @@ import { HeaderComponent } from "../components/ScreenHeader";
 import TripCard from "../components/TripCard";
 import TripData from "../config/staticdata.json";
 export default function TripListScreen(props) {
+  const [showNewTrip, setShowNewTrip] = React.useState(false);
   console.log("Trip list >>>");
   console.log(TripData.defaultPlaces);
 
@@ -28,9 +29,21 @@ export default function TripListScreen(props) {
             tripIcon={trips.image}
             tripTasks={trips.tasks}
             tripMembers={trips.members}
+            isAdmin={trips.isAdmin}
             parentProps={props}
           />
         ))}
+        {showNewTrip ? (
+          <TripCard
+            // key={trips.tripName}
+            tripName="New Trip"
+            tripIcon="test"
+            tripTasks=""
+            tripMembers=""
+            isAdmin=""
+            parentProps={props}
+          />
+        ) : null}
         <View style={styles.takeQuizCard}>
           <Text style={styles.takeQuizText}>
             Don't know where to go for your next trip? Take our quiz to find
@@ -54,9 +67,13 @@ export default function TripListScreen(props) {
       <View>
         <TouchableHighlight style={styles.newTripButton}>
           <Text
-            onPress={() =>
-              props.navigation.navigate({ name: "NewTrips", params: {} })
-            }
+            onPress={() => (
+              props.navigation.navigate({
+                name: "NewTrips",
+                params: { isAdmin: true },
+              }),
+              setShowNewTrip(true)
+            )}
             style={styles.buttonText}
           >
             New Trip

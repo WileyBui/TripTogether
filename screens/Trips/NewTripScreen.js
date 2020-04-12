@@ -8,7 +8,7 @@ import {
   Image,
 } from "react-native";
 import { Ionicons, MaterialIcons, FontAwesome } from "@expo/vector-icons";
-import { HeaderComponentWithBackButton } from "../../components/ScreenHeader";
+import { TripHeader, NewTripHeader } from "../../components/ScreenHeader";
 import MoreMemberButton from "../../components/MoreMemberButton";
 
 export default function CurrentTripScreen(props) {
@@ -27,16 +27,25 @@ export default function CurrentTripScreen(props) {
     <View style={styles.screenContainer}>
       {/* Don't delete this: This is the header component and
          you need it to navigate to other screens */}
-      <HeaderComponentWithBackButton
+
+      <NewTripHeader
         headerProps={props}
         screenTitle={
           props.route.params.name ? props.route.params.name : "Untitled"
         }
       />
+
       <ScrollView>
+        {props.route.params.isAdmin ? (
+          <View style={[styles.container, { backgroundColor: "#032224" }]}>
+            <Text style={{ color: "#fff", fontWeight: "bold" }}>
+              You are the Admin
+            </Text>
+          </View>
+        ) : null}
         {/* Members */}
         <View style={styles.container}>
-          <Text style={styles.boldHeader}>Add Members</Text>
+          <Text style={styles.boldHeader}>Members</Text>
           <View style={styles.messageAndAddRow}>
             <View style={[styles.leftColumn, { flexDirection: "row" }]}>
               {props.route.params.members ? (
@@ -66,14 +75,16 @@ export default function CurrentTripScreen(props) {
               ) : null}
             </View>
             <View style={styles.rightColumn}>
-              <TouchableOpacity
-                onPress={() =>
-                  props.navigation.navigate({ name: "AddMember", params: {} })
-                }
-                style={styles.addTouchableOpacity}
-              >
-                <Text style={styles.addButton}>+Add</Text>
-              </TouchableOpacity>
+              {props.route.params.isAdmin ? (
+                <TouchableOpacity
+                  onPress={() =>
+                    props.navigation.navigate({ name: "AddMember", params: {} })
+                  }
+                  style={styles.addTouchableOpacity}
+                >
+                  <Text style={styles.addButton}>+Add</Text>
+                </TouchableOpacity>
+              ) : null}
             </View>
           </View>
         </View>
@@ -122,14 +133,16 @@ export default function CurrentTripScreen(props) {
               ) : null}
             </View>
             <View style={styles.rightColumn}>
-              <TouchableOpacity
-                onPress={() =>
-                  props.navigation.navigate({ name: "AddTask", params: {} })
-                }
-                style={styles.addTouchableOpacity}
-              >
-                <Text style={styles.addButton}>+Add</Text>
-              </TouchableOpacity>
+              {props.route.params.isAdmin ? (
+                <TouchableOpacity
+                  onPress={() =>
+                    props.navigation.navigate({ name: "AddTask", params: {} })
+                  }
+                  style={styles.addTouchableOpacity}
+                >
+                  <Text style={styles.addButton}>+Add</Text>
+                </TouchableOpacity>
+              ) : null}
             </View>
           </View>
         </View>

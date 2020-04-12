@@ -2,6 +2,7 @@
   "defaultPlaces": [
     {
       "tripName": "France",
+      "isAdmin": true,
       "image": "http://icons.iconarchive.com/icons/custom-icon-design/2014-world-cup-flags/128/France-icon.png",
       "members": {
         "Governess": "https://canvas.umn.edu/images/thumbnails/10752033/N6BARbwtmsunPDnFl36DuiYgEdjbw6oEseC7J6Iv",
@@ -25,6 +26,7 @@
     },
     {
       "tripName": "Hawaii",
+      "isAdmin": true,
       "image": "https://www.hawaiianairlines.com/favicon.ico",
       "members": {
         "Wiley": "https://wileybui.com/images/0.jpg",
@@ -57,6 +59,8 @@
     },
     {
       "tripName": "Australia",
+      "isAdmin": false,
+
       "image": "http://icons.iconarchive.com/icons/custom-icon-design/round-world-flags/256/Australia-icon.png",
       "members": {
         "Lee": "https://canvas.umn.edu/images/thumbnails/7677159/3NFjcppoe3lEWneMupc0VNiOPOzTuwADtHSv5LFQ",

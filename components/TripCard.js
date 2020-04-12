@@ -5,7 +5,7 @@ import {
   Text,
   View,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
 } from "react-native";
 export default function TripCard(props) {
   console.log("Trip Card");
@@ -15,18 +15,22 @@ export default function TripCard(props) {
   return (
     <View style={styles.container}>
       <View style={styles.leftSection}>
-        <Image
-          style={styles.tripIcon}
-          source={{
-            uri: props.tripIcon
-          }}
-        />
+        {props.tripIcon == "test" ? (
+          <View style={[styles.tripIcon, { backgroundColor: "#032224" }]} />
+        ) : (
+          <Image
+            style={styles.tripIcon}
+            source={{
+              uri: props.tripIcon,
+            }}
+          />
+        )}
       </View>
       <View style={styles.middleSection}>
         <Text
           style={{
             fontWeight: "bold",
-            fontSize: 18
+            fontSize: 18,
           }}
         >
           {props.tripName}
@@ -40,13 +44,18 @@ export default function TripCard(props) {
               params: {
                 name: props.tripName,
                 members: props.tripMembers,
-                tasks: props.tripTasks
-              }
+                tasks: props.tripTasks,
+                isAdmin: props.isAdmin,
+              },
             })
           }
           style={styles.editButton}
         >
-          <Text style={styles.buttonText}>Edit</Text>
+          {props.isAdmin ? (
+            <Text style={styles.buttonText}>Edit</Text>
+          ) : (
+            <Text style={styles.buttonText}>View</Text>
+          )}
         </TouchableHighlight>
       </View>
     </View>
@@ -62,7 +71,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
-    elevation: 2
+    elevation: 2,
     // justifyContent: "center"
   },
   middleSection: {
@@ -70,14 +79,14 @@ const styles = StyleSheet.create({
     height: 60,
     // backgroundColor: "skyblue",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   rightSection: {
     width: "25%",
     height: 60,
     // backgroundColor: "powderblue",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   leftSection: {
     width: "25%",
@@ -85,7 +94,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     // backgroundColor: "powderblue",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   editButton: {
     margin: 10,
@@ -97,15 +106,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#032224",
     borderColor: "#032224",
     // borderWidth: 2,
-    borderRadius: 25
+    borderRadius: 25,
   },
   buttonText: {
     color: "#fff",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   tripIcon: {
     width: 50,
     height: 50,
-    borderRadius: 25
-  }
+    borderRadius: 25,
+  },
 });
