@@ -11,7 +11,7 @@ import {
 import { HeaderComponentWithBackButton } from "../../components/ScreenHeader";
 import RadioForm from "react-native-simple-radio-button";
 
-export default function QuizContentScreen(props) {
+export default function QuizContentScreen2(props) {
   const [newOptionMessage, setNewOptionMessage] = React.useState("");
 
   var userOptions = [],
@@ -49,8 +49,8 @@ export default function QuizContentScreen(props) {
 
   function continueBtnClicked() {
     props.navigation.navigate({
-      name: "QuizContentScreen2",
-      params: { title: "Hotel Type" },
+      name: "QuizContentScreen3",
+      params: { title: "Budget" },
     });
   }
 
@@ -73,7 +73,7 @@ export default function QuizContentScreen(props) {
          you need it to navigate to other screens */}
       <HeaderComponentWithBackButton
         headerProps={props}
-        screenTitle={"Location Question"}
+        screenTitle={title + " Question"}
       />
 
       <Text style={styles.title}>{title}</Text>

@@ -13,6 +13,10 @@ import QuizCoverScreen from "../screens/Quiz/QuizCoverScreen";
 // import QuizFormatScreen from "../screens/Quiz/QuizFormatScreen";
 import TaskConfirmation from "../screens/Trips/TaskConfirmation";
 import QuizContentScreen from "../screens/Quiz/QuizContentScreen";
+import QuizContentScreen2 from "../screens/Quiz/QuizContentScreen2";
+import QuizContentScreen3 from "../screens/Quiz/QuizContentScreen3";
+import QuizResultsScreen from "../screens/Quiz/QuizResultsScreen";
+import TripListScreen from "../screens/TripListScreen";
 import NotificationScreen from "../screens/NotificationScreen";
 
 const Stack = createStackNavigator();
@@ -39,6 +43,11 @@ export default function StackNav(props) {
         <Stack.Screen
           name="Quiz"
           component={QuizOverviewScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TripListScreen"
+          component={TripListScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -69,6 +78,21 @@ export default function StackNav(props) {
         <Stack.Screen
           name="QuizContentScreen"
           component={QuizContentScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="QuizContentScreen2"
+          component={QuizContentScreen2}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="QuizContentScreen3"
+          component={QuizContentScreen3}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="QuizResults"
+          component={QuizResultsScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen

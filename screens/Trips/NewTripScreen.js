@@ -31,7 +31,11 @@ export default function CurrentTripScreen(props) {
       <NewTripHeader
         headerProps={props}
         screenTitle={
-          props.route.params.name ? props.route.params.name : "Untitled"
+          props.route.params.name
+            ? props.route.params.name
+            : props.route.params.tripName
+            ? "Paris"
+            : "Untitled"
         }
       />
 

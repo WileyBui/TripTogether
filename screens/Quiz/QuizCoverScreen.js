@@ -11,24 +11,24 @@ import { HeaderComponentWithBackButton } from "../../components/ScreenHeader";
 export default function QuizCoverScreen(props) {
   const [quizName, setQuizName] = React.useState("Trip Location");
 
-  function continueButtonClicked() {
-    props.navigation.navigate({
-      name: "QuizContentScreen",
-      params: { title: quizName },
-    });
+  // function continueButtonClicked() {
+  //   props.navigation.navigate({
+  //     name: "QuizContentScreen",
+  //     params: { title: quizName },
+  //   });
 
-    setTimeout(function () {
-      if (quizName == "Trip Location") {
-        setQuizName("Hotel Type");
-      } else if (quizName == "Hotel Type") {
-        setQuizName("Budget");
-      } else if (quizName == "Budget") {
-        setQuizName("Role Planning");
-      } else {
-        setQuizName("Trip Location");
-      }
-    }, 500);
-  }
+  //   setTimeout(function () {
+  //     if (quizName == "Trip Location") {
+  //       setQuizName("Hotel Type");
+  //     } else if (quizName == "Hotel Type") {
+  //       setQuizName("Budget");
+  //     } else if (quizName == "Budget") {
+  //       setQuizName("Role Planning");
+  //     } else {
+  //       setQuizName("Trip Location");
+  //     }
+  //   }, 500);
+  // }
 
   return (
     <View style={styles.container}>
@@ -39,10 +39,15 @@ export default function QuizCoverScreen(props) {
         screenTitle={quizName + " Quiz"}
       />
 
-      <Text style={styles.title}>{quizName + " Quiz"}</Text>
+      <Text style={styles.title}>Trip Location Quiz</Text>
 
       <TouchableHighlight
-        onPress={() => continueButtonClicked()}
+        onPress={() =>
+          props.navigation.navigate({
+            name: "QuizContentScreen",
+            params: { title: quizName },
+          })
+        }
         style={styles.continueButton}
       >
         <Text style={styles.continue}>CONTINUE</Text>

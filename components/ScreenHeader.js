@@ -131,6 +131,20 @@ export const HeaderComponent = (props) => {
     </View>
   );
 };
+export const HeaderComponentWithTitle = (props) => {
+  console.log("Header Component ++++++>");
+  console.log(props);
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.leftSection}></View>
+      <View style={styles.middleSection}>
+        <Text style={styles.headerTitle}>{props.screenTitle}</Text>
+      </View>
+      <View style={styles.rightSection}></View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

@@ -70,7 +70,7 @@ export default function TripListScreen(props) {
             onPress={() => (
               props.navigation.navigate({
                 name: "NewTrips",
-                params: { isAdmin: true },
+                params: { isAdmin: true, tripName: false },
               }),
               setShowNewTrip(true)
             )}
