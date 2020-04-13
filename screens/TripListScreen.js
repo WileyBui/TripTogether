@@ -39,7 +39,7 @@ export default function TripListScreen(props) {
         {showNewTrip ? (
           <TripCard
             // key={trips.tripName}
-            tripName="New Trip"
+            tripName="Paris"
             tripIcon="test"
             tripTasks=""
             tripMembers=""
