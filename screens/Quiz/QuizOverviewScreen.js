@@ -27,7 +27,7 @@ export default function QuizOverviewScreen(props) {
           <Text style={styles.later}>Later</Text>
         </TouchableHighlight>
 
-        <View style={{ marginHorizontal: 5 }}></View>
+        {/* <View style={{ marginHorizontal: 5 }}></View> */}
 
         <TouchableHighlight
           onPress={() => props.navigation.navigate("QuizCoverScreen")}
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    marginVertical: "50%",
     height: 125,
     fontSize: 45,
     textAlign: "center",

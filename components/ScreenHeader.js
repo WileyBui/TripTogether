@@ -67,7 +67,9 @@ export const NewTripHeader = (props) => {
     <View style={styles.container}>
       <View style={styles.leftSection}>
         <TouchableHighlight
-          onPress={() => props.headerProps.navigation.goBack()}
+          onPress={() =>
+            props.headerProps.navigation.navigate("TripListScreen")
+          }
         >
           {/* <Text>Open Menu</Text> */}
           <Ionicons name="md-arrow-back" size={32} color="#032224" />
@@ -83,7 +85,9 @@ export const NewTripHeader = (props) => {
       </View>
       <View style={styles.rightSection}>
         <TouchableHighlight
-          onPress={() => props.headerProps.navigation.goBack()}
+          onPress={() =>
+            props.headerProps.navigation.navigate("TripListScreen")
+          }
           // onPress={() => props.headerProps.navigation.toggleDrawer()}
         >
           {/* <Text>Open Menu</Text> */}

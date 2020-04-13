@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    marginVertical: "50%",
+    marginVertical: "30%",
     height: 130,
     fontSize: 45,
     textAlign: "center",

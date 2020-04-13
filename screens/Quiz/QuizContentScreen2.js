@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: "10%",
     // flex: 1,
-    height: 700,
+    height: 650,
     backgroundColor: "#fff",
     alignItems: "center",
   },

@@ -11,8 +11,11 @@ import TripCard from "../components/TripCard";
 import TripData from "../config/staticdata.json";
 export default function TripListScreen(props) {
   const [showNewTrip, setShowNewTrip] = React.useState(false);
+  const [showParisTrip, setShowParisTrip] = React.useState(false);
+
   console.log("Trip list >>>");
   console.log(TripData.defaultPlaces);
+  console.log(props);
 
   return (
     <View style={styles.container}>
@@ -44,6 +47,17 @@ export default function TripListScreen(props) {
             parentProps={props}
           />
         ) : null}
+        {showParisTrip ? (
+          <TripCard
+            // key={trips.tripName}
+            tripName="Paris"
+            tripIcon="test"
+            tripTasks=""
+            tripMembers=""
+            isAdmin={true}
+            parentProps={props}
+          />
+        ) : null}
         <View style={styles.takeQuizCard}>
           <Text style={styles.takeQuizText}>
             Don't know where to go for your next trip? Take our quiz to find
@@ -51,12 +65,13 @@ export default function TripListScreen(props) {
           </Text>
           <TouchableHighlight style={styles.takeQuizButton}>
             <Text
-              onPress={() =>
+              onPress={() => (
                 props.navigation.navigate({
                   name: "QuizCoverScreen",
                   params: {},
-                })
-              }
+                }),
+                setShowParisTrip(false)
+              )}
               style={styles.takeQuizButtonText}
             >
               Take Quiz

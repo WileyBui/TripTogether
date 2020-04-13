@@ -62,25 +62,26 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
     paddingVertical: 15,
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: "bold",
   },
 
   continueButton: {
     backgroundColor: "#032224",
     width: "95%",
-    margin: 20,
+
+    margin: 10,
   },
   p: {
-    fontSize: 20,
+    fontSize: 14,
     fontWeight: "bold",
-    margin: 5,
+    // margin: 5,
     color: "#1F1F1F",
   },
   title: {
     fontSize: 30,
-    marginTop: 15,
-    marginBottom: 15,
+    marginTop: 5,
+    marginBottom: 10,
     fontWeight: "bold",
     textAlign: "center",
     alignItems: "center",
