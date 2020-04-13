@@ -113,10 +113,19 @@ export const HeaderComponent = (props) => {
       </View>
       <View style={styles.rightSection}>
         <TouchableHighlight
-        // onPress={() => props.headerProps.navigation.toggleDrawer()}
+          onPress={() =>
+            props.headerProps.navigation.navigate({
+              name: "Notification",
+              params: {},
+            })
+          }
         >
           {/* <Text>Open Menu</Text> */}
-          <Ionicons name="ios-search" size={32} color="#032224" />
+          <Ionicons
+            name="ios-notifications-outline"
+            size={32}
+            color="#032224"
+          />
         </TouchableHighlight>
       </View>
     </View>

@@ -13,6 +13,7 @@ import QuizCoverScreen from "../screens/Quiz/QuizCoverScreen";
 // import QuizFormatScreen from "../screens/Quiz/QuizFormatScreen";
 import TaskConfirmation from "../screens/Trips/TaskConfirmation";
 import QuizContentScreen from "../screens/Quiz/QuizContentScreen";
+import NotificationScreen from "../screens/NotificationScreen";
 
 const Stack = createStackNavigator();
 
@@ -73,6 +74,11 @@ export default function StackNav(props) {
         <Stack.Screen
           name="TaskConfirmation"
           component={TaskConfirmation}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Notification"
+          component={NotificationScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
